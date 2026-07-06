@@ -1,206 +1,161 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Posture Innovation</title>
+    <title>LIAXIS | Premium Dik Duruş & Toparlayıcı Sütyen</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
+    <!-- Yükleniyor Ekranı (Siyah Ekran Koruması Aktif) -->
     <div id="loader">
-        <div class="loader-text">
-            <span class="char">E</span><span class="char">L</span><span class="char">E</span><span class="char">V</span><span class="char">A</span><span class="char">T</span><span class="char">E</span>
-        </div>
-        <div class="loader-progress"></div>
+        <div class="loader-text">LIAXIS</div>
     </div>
 
+    <!-- Arka Plan 3D Alanı -->
+    <div class="canvas-container" id="canvas-container"></div>
+
+    <!-- Menü -->
     <header class="nav-header">
-        <div class="logo">AURA</div>
+        <div class="logo">LIAXIS</div>
         <nav>
-            <a href="#benefits">Benefits</a>
-            <a href="#tech">Technology</a>
-            <a href="#shop-module" class="nav-cta">Shop Now</a>
+            <a href="#experience">Teknoloji</a>
+            <a href="#benefits">Faydalar</a>
+            <a href="#shop-module" class="nav-cta">Şimdi Keşfet</a>
         </nav>
     </header>
 
-    <section id="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="https://cdn.shopify.com/videos/c/vp/762259a343974b8ab21e28f66dcb5957/762259a343974b8ab21e28f66dcb5957.SD-480p-1.5Mbps-88174953.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Redefine Your Presence</h1>
-            <p class="hero-subtitle">The ultimate fusion of luxury and biomechanics.</p>
-            <a href="#shop-module" class="btn-primary">Discover More</a>
-        </div>
-    </section>
+    <!-- GSAP Kaydırma Alanı -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
 
-    <section id="brand-statement">
-        <div class="container">
-            <h2 class="statement-text">True luxury is feeling absolutely effortless in your own skin.</h2>
-        </div>
-    </section>
-
-    <section id="product-reveal">
-        <div class="canvas-container" id="canvas-container"></div>
-        <div class="reveal-content">
-            <h2 class="reveal-title">Precision Engineered</h2>
-            <p>Every curve designed for optimal alignment.</p>
-        </div>
-    </section>
-
-    <section id="benefits">
-        <div class="container split">
-            <div class="content-left gs-reveal">
-                <span class="eyebrow">The Evolution</span>
-                <h2>Uncompromising Support</h2>
-                <p>Experience a paradigm shift in daily comfort. Our materials adapt to your unique physiology, ensuring perfect alignment without sacrificing freedom of movement.</p>
-            </div>
-            <div class="image-right gs-reveal">
-                <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/A52BAEDA-AD7A-41A0-8437-476C061599DE.webp?v=1783289501" alt="Posture Enhancement" class="parallax-img">
-            </div>
-        </div>
-    </section>
-
-    <section id="posture" class="dark-section">
-        <div class="container">
-            <h2 class="section-title center gs-reveal">Transform Your Silhouette</h2>
-            <div class="grid-2">
-                <div class="grid-item gs-reveal">
-                    <h3>Before</h3>
-                    <p>Conventional designs fail to address the root cause of fatigue, leading to compromised posture and diminished energy.</p>
+            <!-- Kahraman (Hero) Bölümü -->
+            <section id="hero" class="panel">
+                <div class="container hero-container">
+                    <h1 class="hero-title gs-reveal">Kusursuz Silüet,<br>Dik Duruş.</h1>
+                    <p class="hero-subtitle gs-reveal">Sırtınızı destekleyen, göğsünüzü toparlayan premium tasarım.</p>
                 </div>
-                <div class="grid-item gs-reveal">
-                    <h3>The Aura Standard</h3>
-                    <p>Immediate realignment. The kinetic structure gently guides your body into its natural, powerful state of balance.</p>
+            </section>
+
+            <!-- 3D Hikaye Anlatımı ve Özellikler -->
+            <section id="experience" class="panel scroll-story">
+                <div class="story-step" id="step-1">
+                    <div class="story-content gs-reveal-up">
+                        <span class="eyebrow">X-Band Teknolojisi</span>
+                        <h2>Çapraz Sırt Desteği</h2>
+                        <p>Özel tasarlanmış çapraz sırt bantları, omuzlarınızı nazikçe geriye çeker. Omurganızı hizalayarak duruş bozukluklarını ve sırt ağrılarını engeller.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="comfort-tech">
-        <div class="container split reverse">
-            <div class="content-left gs-reveal">
-                <span class="eyebrow">Advanced Technology</span>
-                <h2>Breathable Dynamics</h2>
-                <p>Woven with micro-channeled fibers that regulate temperature while providing structural integrity. It is invisible under clothing, yet undeniable in its impact.</p>
-            </div>
-            <div class="image-right gs-reveal">
-                <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/BD4AFD94-0A51-4FAF-8C62-D78A7ED5D024.webp?v=1783289501" alt="Fabric Comfort" class="parallax-img">
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <div class="gallery-wrapper">
-            <div class="gallery-item gs-reveal">
-                <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932" alt="Lifestyle 1">
-            </div>
-            <div class="gallery-item gs-reveal">
-                <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" alt="Lifestyle 2">
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="section-title center gs-reveal">A New Standard</h2>
-            <div class="testimonial-slider gs-reveal">
-                <div class="quote">
-                    <p>"The difference is profound. Not just in how I look, but in how I carry myself through the world."</p>
-                    <span class="author">— E. Thorne</span>
+                <div class="story-step right" id="step-2">
+                    <div class="story-content gs-reveal-up">
+                        <span class="eyebrow">Anında Şekillendirme</span>
+                        <h2>Mükemmel Toparlayıcı Etki</h2>
+                        <p>Özel ön kopça sistemi ve yan destek panelleri sayesinde göğüsleri anında dikleştirir, sarkmaları toparlar ve pürüzsüz bir görünüm sağlar.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="shop-module">
-        <div class="container split align-start">
-            <div class="product-images gs-reveal">
-                <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" alt="Product Main" class="main-product-img">
-            </div>
-            <div class="product-details gs-reveal">
-                <h1 class="product-name">The Aura Corrector</h1>
-                <div class="price-container">
-                    <span class="current-price">₺1,099</span>
-                    <span class="old-price">₺1,500</span>
-                    <span class="discount-badge">Save 27%</span>
+                <div class="story-step" id="step-3">
+                    <div class="story-content gs-reveal-up">
+                        <span class="eyebrow">Balensiz Konfor</span>
+                        <h2>Telsiz ve Nefes Alabilen Lüks</h2>
+                        <p>Sert teller veya rahatsız edici dikişler yok. Şampanya Altını mikro liflerle dokunmuş kumaşı gün boyu yokmuş hissi verir, cildinizin nefes almasını sağlar.</p>
+                    </div>
                 </div>
-                <p class="product-description">
-                    Masterfully crafted for the modern individual. Secure your posture, elevate your health, and exude confidence. Includes our lifetime kinetic warranty.
-                </p>
-                
-                <form id="add-to-cart-form" class="shopify-form">
-                    <input type="hidden" name="id" value="123456789">
-                    <button type="submit" class="btn-primary full-width" id="add-to-cart-btn">
-                        <span>Add to Cart</span>
-                        <div class="btn-loader"></div>
-                    </button>
-                </form>
-                
-                <div class="guarantees">
-                    <span>✓ Free Worldwide Shipping</span>
-                    <span>✓ 30-Day Risk-Free Trial</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="faq">
-        <div class="container">
-            <h2 class="section-title center gs-reveal">Inquiries</h2>
-            <div class="faq-list gs-reveal">
-                <div class="faq-item">
-                    <h4>Is it visible under clothing?</h4>
-                    <p>Engineered with micro-thin, seamless edges, it remains entirely imperceptible under standard garments.</p>
+            <!-- Yaşam Tarzı Paralaks -->
+            <section id="lifestyle" class="panel">
+                <div class="parallax-container">
+                    <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932" class="parallax-img" alt="Liaxis Yaşam Tarzı">
+                    <div class="parallax-overlay">
+                        <h2 class="gs-reveal">Hem Sağlık Hem Zarafet</h2>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h4>How long should I wear it daily?</h4>
-                    <p>We recommend starting with 1-2 hours daily, allowing your musculature to adapt to its newly aligned state.</p>
+            </section>
+
+            <!-- Ekstra Faydalar Bölümü -->
+            <section id="benefits" class="panel dark-section">
+                <div class="container">
+                    <div class="benefits-grid">
+                        <div class="benefit-card gs-reveal-up">
+                            <h3>Önden Kopçalı Tasarım</h3>
+                            <p>Giyip çıkarması son derece kolaydır. Kademeli ayarı ile vücudunuza kusursuz uyum sağlar.</p>
+                        </div>
+                        <div class="benefit-card gs-reveal-up" style="transition-delay: 0.1s;">
+                            <h3>Koltuk Altı Toparlama</h3>
+                            <p>Geniş yan bantları sayesinde koltuk altı ve sırttaki fazlalıkları gizler, pürüzsüz bir sırt dekoltesi sunar.</p>
+                        </div>
+                        <div class="benefit-card gs-reveal-up" style="transition-delay: 0.2s;">
+                            <h3>Kıyafet Altında Görünmez</h3>
+                            <p>Lazer kesim kenarları ve dikişsiz yapısı sayesinde en dar kıyafetlerinizin altında bile iz yapmaz.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="cta">
-        <div class="cta-bg" style="background-image: url('https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932');"></div>
-        <div class="cta-overlay"></div>
-        <div class="cta-content gs-reveal">
-            <h2>Step Into Your Power</h2>
-            <a href="#shop-module" class="btn-primary solid">Acquire Now</a>
-        </div>
-    </section>
+            <!-- Shopify Ürün Modülü -->
+            <section id="shop-module" class="panel">
+                <div class="container split align-start">
+                    <div class="product-images gs-reveal-up">
+                        <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" alt="LIAXIS Premium Dik Duruş Sütyeni" class="main-product-img">
+                    </div>
+                    <div class="product-details gs-reveal-up">
+                        <div class="brand-tag">LIAXIS Signature</div>
+                        <h1 class="product-name">Premium Dik Duruş & Toparlayıcı Sütyen</h1>
+                        
+                        <div class="price-container">
+                            <span class="current-price">₺1.099</span>
+                            <span class="old-price">₺1.500</span>
+                            <span class="discount-badge">%27 İNDİRİM</span>
+                        </div>
+                        
+                        <p class="product-description">
+                            Duruşunuzu düzelten, sırt ağrılarınızı hafifleten ve göğüslerinizi kusursuzca toparlayan biyomekanik tasarım. Balensiz lüks konforu şimdi deneyimleyin.
+                        </p>
+                        
+                        <form id="add-to-cart-form" class="shopify-form">
+                            <!-- Shopify Varyant Seçimi (Temsili Görsel Boyut/Renk) -->
+                            <div class="variant-selectors">
+                                <select name="id" class="luxury-select">
+                                    <option value="123456789">Beden: S - Şampanya Beji</option>
+                                    <option value="123456790">Beden: M - Şampanya Beji</option>
+                                    <option value="123456791">Beden: L - Şampanya Beji</option>
+                                    <option value="123456792">Beden: XL - Şampanya Beji</option>
+                                </select>
+                            </div>
 
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h3>AURA</h3>
-                <p>The intersection of luxury and biomechanics.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
-                <a href="#benefits">Benefits</a>
-                <a href="#tech">Technology</a>
-                <a href="#faq">FAQ</a>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Returns</a>
-            </div>
+                            <button type="submit" class="btn-primary" id="add-to-cart-btn">
+                                <span>Sepete Ekle</span>
+                                <div class="btn-loader"></div>
+                            </button>
+                        </form>
+                        
+                        <div class="guarantees">
+                            <span>✦ Ücretsiz Hızlı Kargo</span>
+                            <span>✦ 30 Gün İade Garantisi</span>
+                            <span>✦ Gizli Paketleme</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimal Alt Bilgi -->
+            <footer>
+                <div class="container footer-content">
+                    <div class="logo">LIAXIS</div>
+                    <p>&copy; 2026 LIAXIS Wellness. Lüksün Yeniden Tanımı.</p>
+                </div>
+            </footer>
+
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Aura Posture. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
