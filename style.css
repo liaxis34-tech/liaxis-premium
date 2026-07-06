@@ -597,3 +597,167 @@ footer {
 #loader {
     animation: forceHideLoader 0.5s ease-in 4s forwards;
 }
+/* FIXES */
+
+.hero{
+min-height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.hero__video{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:1;
+}
+
+.hero__content{
+position:relative;
+z-index:5;
+max-width:900px;
+padding:0 24px;
+text-align:center;
+}
+
+.story{
+padding:120px 20px;
+max-width:1400px;
+margin:auto;
+}
+
+.story__block{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+margin:120px 0;
+}
+
+.story__image{
+width:100%;
+display:block;
+border-radius:24px;
+}
+
+.product-3d{
+padding:150px 0;
+position:relative;
+}
+
+.product-3d__stage{
+position:relative;
+width:100%;
+height:700px;
+overflow:hidden;
+}
+
+#productCanvas{
+width:100% !important;
+height:100% !important;
+display:block;
+}
+
+.benefits{
+padding:150px 20px;
+}
+
+.benefits__grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:32px;
+}
+
+.purchase{
+padding:150px 20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+max-width:1400px;
+margin:auto;
+}
+
+.purchase__gallery img{
+width:100%;
+display:block;
+border-radius:24px;
+}
+
+.purchase__info{
+max-width:600px;
+}
+
+.reviews{
+padding:150px 20px;
+}
+
+.reviews__grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.review-card{
+background:#111;
+padding:30px;
+border-radius:20px;
+}
+
+.faq{
+padding:150px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+.final-cta{
+padding:200px 20px;
+text-align:center;
+}
+
+.site-footer{
+padding:100px 20px;
+background:#050505;
+}
+
+@media(max-width:991px){
+
+.story__block{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.purchase{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.benefits__grid{
+grid-template-columns:1fr;
+}
+
+.reviews__grid{
+grid-template-columns:1fr;
+}
+
+.product-3d__stage{
+height:500px;
+}
+
+.hero__title{
+font-size:42px;
+line-height:1.1;
+}
+
+.section-title{
+font-size:38px;
+}
+
+.site-nav{
+display:none;
+}
+}
