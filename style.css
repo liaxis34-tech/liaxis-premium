@@ -220,12 +220,13 @@ a:focus-visible, button:focus-visible, input:focus-visible{
    HERO — FULLSCREEN VIDEO + GLASS DEPTH FIELD
    ========================================================================== */
 .hero{
-  position: relative; width:100%; height: 100svh; min-height: 600px;
-   display:grid;
-grid-template-columns: 1fr 1fr;
-align-items:center;
-  overflow: hidden; background: var(--ink);
-  display:flex; align-items:center;
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  background:#FFFDF8;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
 }
 .hero-video-wrap{
   position:absolute; inset:0;
@@ -266,7 +267,6 @@ align-items:center;
   margin: 0 auto; padding: 0 var(--gutter); color: var(--ink)  
    margin-left:auto;
 width:50%;
-}
 .hero-eyebrow{ font-size: 0.78rem; letter-spacing: 0.22em; color: var(--sand); margin-bottom: 26px; }
 .hero-title{
   font-family: var(--font-display); font-weight: 600;
@@ -647,4 +647,22 @@ model-viewer{
   transform:translateY(-50%);
   z-index:4;
   background:transparent;
-}          
+}          @media (max-width: 640px){
+
+  model-viewer{
+    width:90vw;
+    height:55vh;
+
+    left:50%;
+    top:120px;
+
+    transform:translateX(-50%);
+  }
+
+  .hero-content{
+    width:100%;
+    margin:0;
+    padding-top:55vh;
+  }
+
+}
