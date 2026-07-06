@@ -274,7 +274,11 @@ width:50%;
 }
 .hero-title .line{ display:block; overflow:hidden; }
 .hero-title .line span{ display:inline-block; }
-.hero-sub{ max-width: 480px; font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(31,31,31,0.72);
+.hero-sub{
+  max-width: 480px;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: rgba(255,255,255,0.85);
+}
 .hero-actions{ display:flex; gap: 18px; flex-wrap: wrap; }
 .hero-actions .btn-ghost{ border-color: rgba(255,253,248,0.35); color: var(--cream); }
 .hero-actions .btn-ghost:hover{ border-color: var(--cream); }
