@@ -641,34 +641,12 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .footer-top{ grid-template-columns: 1fr 1fr; }
   .btn-nav-cta{ display:none; }
 }
-
+   
 @media (max-width: 780px){
   .story-row, .story-row-reverse{ grid-template-columns: 1fr; direction: ltr; }
 }
 
-@media (max-width: 640px){
-  :root{ --nav-h: 76px; }
-  .hero-actions{ flex-direction: column; align-items: stretch; }
-  .why-grid{ grid-template-columns: 1fr; }
-  .gallery-grid{ grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; }
-  .footer-top{ grid-template-columns: 1fr; }
-  .cta-band h2 br{ display:none; }
-  .glass-panel{ display:none; }
-}
-model-viewer{
-  width:45%;
-  height:700px;
-  position:absolute;
-  left:5%;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:4;
-  background:transparent;
-}          @media (max-width: 640px){
 
-  model-viewer{
-    width:90vw;
-    height:55vh;
 
     left:50%;
     top:120px;
