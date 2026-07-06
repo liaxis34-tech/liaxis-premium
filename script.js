@@ -402,3 +402,52 @@
   });
 
 })();
+const VARIANTS = {
+  Bej: {
+    S: "46749171187766",
+    M: "46749171220534",
+    L: "46749171253302",
+    XL: "46749171286070"
+  },
+  Siyah: {
+    S: "46749173186614",
+    M: "46749173219382",
+    L: "46749173252150",
+    XL: "46749173284918"
+  }
+};
+
+let selectedSize = "M";
+let selectedColor = "Bej";
+
+document.querySelectorAll('.pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pill').forEach(x => x.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    selectedSize = btn.textContent.trim();
+  });
+});
+
+document.querySelectorAll('.pill-color').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pill-color').forEach(x => x.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    selectedColor = btn.getAttribute('aria-label');
+  });
+});
+
+document.querySelector('.btn-add-main').addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const variantId =
+    VARIANTS[selectedColor] &&
+    VARIANTS[selectedColor][selectedSize];
+
+  if (!variantId) {
+    alert('Lütfen beden ve renk seçin');
+    return;
+  }
+
+  window.location.href =
+    `https://theliaxis.com/cart/${variantId}:1`;
+});
