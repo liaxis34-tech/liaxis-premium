@@ -435,19 +435,3 @@ document.querySelectorAll('.pill-color').forEach(btn => {
     selectedColor = btn.getAttribute('aria-label');
   });
 });
-
-document.querySelector('.btn-add-main').addEventListener('click', (e) => {
-  e.preventDefault();
-
-  const variantId =
-    VARIANTS[selectedColor] &&
-    VARIANTS[selectedColor][selectedSize];
-
-  if (!variantId) {
-    alert('Lütfen beden ve renk seçin');
-    return;
-  }
-
-  window.location.href =
-    `https://theliaxis.com/cart/${variantId}:1`;
-});
