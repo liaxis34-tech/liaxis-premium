@@ -261,7 +261,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 .hero-content{
   position: relative; z-index: 5; width:100%; max-width: var(--container);
-  margin: 0 auto; padding: 0 var(--gutter); color: var(--cream);
+  margin: 0 auto; padding: 0 var(--gutter); color: var(--ink);
 }
 .hero-eyebrow{ font-size: 0.78rem; letter-spacing: 0.22em; color: var(--sand); margin-bottom: 26px; }
 .hero-title{
