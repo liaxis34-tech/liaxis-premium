@@ -263,11 +263,17 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .gp-2{ width: 160px; height: 200px; bottom: 14%; right: 10%; }
 .gp-3{ width: 130px; height: 130px; top: 55%; right: 22%; border-radius: 50%; }
 .hero-content{
-  position: relative; z-index: 5; width:100%; max-width: var(--container);
-  margin: 0 auto; padding: 0 var(--gutter); color: var(--ink)  
-   margin-left:auto;
-width:50%;
-.hero-eyebrow{ font-size: 0.78rem; letter-spacing: 0.22em; color: var(--sand); margin-bottom: 26px; }
+  position: relative;
+  z-index: 5;
+
+  width: 50%;
+  margin-left: auto;
+
+  padding: 0 var(--gutter);
+
+  color: #ffffff;
+}
+.hero-eyebrow{ 
 .hero-title{
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(2.6rem, 8vw, 6.2rem); line-height: 1.04; margin: 0 0 30px;
@@ -278,6 +284,13 @@ width:50%;
   max-width: 480px;
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   color: rgba(255,255,255,0.85);
+}
+   .hero-title{
+  color:#ffffff;
+}
+
+.hero-eyebrow{
+  color:#ffffff;
 }
 .hero-actions{ display:flex; gap: 18px; flex-wrap: wrap; }
 .hero-actions .btn-ghost{ border-color: rgba(255,253,248,0.35); color: var(--cream); }
