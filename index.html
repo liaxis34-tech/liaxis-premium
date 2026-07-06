@@ -1,162 +1,802 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIAXIS | Premium Dik Duruş & Toparlayıcı Sütyen</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>LIAXIS — Duruşun Yeni Ekseni | Premium Duruş Destek Sutyeni</title>
+<meta name="description" content="LIAXIS Premium Duruş Destek Sutyeni. Fizyoterapist katkılarıyla geliştirilen X-sırt bantları, nefes alan mikro örgü kumaş ve görünmez kesimle omurganızı doğal hizasına döndürür.">
+<meta name="theme-color" content="#15130F">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="LIAXIS — Duruşun Yeni Ekseni">
+<meta property="og:description" content="Fizyoterapist katkılarıyla geliştirilen premium duruş destek sutyeni. Görünmez, konforlu, etkili.">
+<meta property="og:image" content="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cline x1='50' y1='6' x2='50' y2='94' stroke='%2315130F' stroke-width='6'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://cdn.shopify.com">
+<link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546">
+
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "LIAXIS Premium Duruş Destek Sutyeni",
+  "image": "https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546",
+  "description": "Fizyoterapist katkılarıyla geliştirilen, X-sırt bantlı ve nefes alan mikro örgü kumaştan üretilen premium duruş destek sutyeni.",
+  "brand": { "@type": "Brand", "name": "LIAXIS" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "TRY",
+    "price": "1290.00",
+    "availability": "https://schema.org/InStock",
+    "url": "https://theliaxis.com/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  }
+}
+</script>
 </head>
 <body>
 
-    <!-- Yükleniyor Ekranı (Siyah Ekran Koruması Aktif) -->
-    <div id="loader">
-        <div class="loader-text">LIAXIS</div>
+<!-- ============================================= -->
+<!-- CUSTOM CURSOR                                  -->
+<!-- ============================================= -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============================================= -->
+<!-- SIGNATURE SPINE PROGRESS LINE                  -->
+<!-- ============================================= -->
+<div class="spine-progress" aria-hidden="true">
+  <div class="spine-progress__track">
+    <div class="spine-progress__fill" id="spineFill"></div>
+    <div class="spine-progress__node" id="spineNode"></div>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PREMIUM LOADER                                 -->
+<!-- ============================================= -->
+<div class="loader" id="loader">
+  <div class="loader__stage">
+    <svg class="loader__mark" width="40" height="140" viewBox="0 0 40 140" fill="none" aria-hidden="true">
+      <line x1="20" y1="4" x2="20" y2="136" stroke="#F3EFE9" stroke-width="1.5" class="loader__mark-line"/>
+    </svg>
+    <h1 class="loader__wordmark" aria-label="LIAXIS">
+      <span class="loader__char">L</span><span class="loader__char">I</span><span class="loader__char">A</span><span class="loader__char">X</span><span class="loader__char">I</span><span class="loader__char">S</span>
+    </h1>
+    <p class="loader__caption">Duruşun Yeni Ekseni</p>
+  </div>
+  <div class="loader__bar"><div class="loader__bar-fill" id="loaderBarFill"></div></div>
+  <span class="loader__percent" id="loaderPercent">0</span>
+</div>
+
+<!-- ============================================= -->
+<!-- HEADER / NAV                                   -->
+<!-- ============================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <a href="#hero" class="site-header__logo" aria-label="LIAXIS anasayfa">LIAXIS</a>
+
+    <nav class="site-nav" id="siteNav" aria-label="Ana menü">
+      <a href="#story" class="site-nav__link"><span>Hikaye</span></a>
+      <a href="#product-3d" class="site-nav__link"><span>Ürün</span></a>
+      <a href="#benefits" class="site-nav__link"><span>Faydalar</span></a>
+      <a href="#reviews" class="site-nav__link"><span>Yorumlar</span></a>
+      <a href="#faq" class="site-nav__link"><span>S.S.S.</span></a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Ara">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.2"/><line x1="12.6" y1="12.6" x2="16.5" y2="16.5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
+      <button class="icon-btn cart-toggle" id="cartToggle" aria-label="Sepeti aç" aria-controls="cartDrawer">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6H14L13.3 15.5C13.25 16.15 12.7 16.65 12.05 16.65H5.95C5.3 16.65 4.75 16.15 4.7 15.5L4 6Z" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6V4.5C6.5 3.12 7.62 2 9 2C10.38 2 11.5 3.12 11.5 4.5V6" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="cart-toggle__count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent">
+
+  <!-- ============================================= -->
+  <!-- 1. HERO SECTION                                -->
+  <!-- ============================================= -->
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <video
+        class="hero__video"
+        id="heroVideo"
+        autoplay muted loop playsinline
+        poster="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546">
+        <source src="https://cdn.shopify.com/videos/c/vp/762259a343974b8ab21e28f66dcb5957/762259a343974b8ab21e28f66dcb5957.SD-480p-1.5Mbps-88174953.mp4" type="video/mp4">
+      </video>
+      <div class="hero__scrim"></div>
     </div>
 
-    <!-- Arka Plan 3D Alanı -->
-    <div class="canvas-container" id="canvas-container"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal-line"><span>LIAXIS PREMIUM SUTYEN</span></p>
+      <h1 class="hero__title">
+        <span class="reveal-word"><span class="reveal-word__inner">Dik duruşun</span></span>
+        <span class="reveal-word"><span class="reveal-word__inner">yeni <em>ekseni.</em></span></span>
+      </h1>
+      <p class="hero__subtitle reveal-line"><span>Omuzlarınızı nazikçe geri çeken, sırtınızı doğal hizasına döndüren premium destek sutyeni.</span></p>
 
-    <!-- Menü -->
-    <header class="nav-header">
-        <div class="logo">LIAXIS</div>
-        <nav>
-            <a href="#experience">Teknoloji</a>
-            <a href="#benefits">Faydalar</a>
-            <a href="#shop-module" class="nav-cta">Şimdi Keşfet</a>
-        </nav>
-    </header>
+      <div class="hero__actions">
+        <a href="#purchase" class="btn btn--primary">
+          <span>Şimdi Keşfet</span>
+        </a>
+        <a href="#story" class="btn btn--ghost">
+          <span>Hikayemiz</span>
+        </a>
+      </div>
+    </div>
 
-    <!-- GSAP Kaydırma Alanı -->
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
+    <button class="scroll-indicator" id="scrollIndicator" aria-label="Aşağı kaydır">
+      <span class="scroll-indicator__line"></span>
+      <span class="scroll-indicator__label">Kaydır</span>
+    </button>
+  </section>
 
-            <!-- Kahraman (Hero) Bölümü -->
-            <section id="hero" class="panel">
-                <div class="container hero-container">
-                    <h1 class="hero-title gs-reveal">Kusursuz Silüet,<br>Dik Duruş.</h1>
-                    <p class="hero-subtitle gs-reveal">Sırtınızı destekleyen, göğsünüzü toparlayan premium tasarım.</p>
-                </div>
-            </section>
+  <!-- ============================================= -->
+  <!-- 2. STORYTELLING SECTION                        -->
+  <!-- ============================================= -->
+  <section class="story" id="story">
+    <div class="story__intro">
+      <span class="eyebrow reveal-line"><span>HİKAYEMİZ</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Modern hayat,</span></span>
+        <span class="reveal-line"><span>omurganızı unutuyor.</span></span>
+      </h2>
+    </div>
 
-            <!-- 3D Hikaye Anlatımı ve Özellikler -->
-            <section id="experience" class="panel scroll-story">
-                <div class="story-step" id="step-1">
-                    <div class="story-content gs-reveal-up">
-                        <span class="eyebrow">X-Band Teknolojisi</span>
-                        <h2>Çapraz Sırt Desteği</h2>
-                        <p>Özel tasarlanmış çapraz sırt bantları, omuzlarınızı nazikçe geriye çeker. Omurganızı hizalayarak duruş bozukluklarını ve sırt ağrılarını engeller.</p>
-                    </div>
-                </div>
-                <div class="story-step right" id="step-2">
-                    <div class="story-content gs-reveal-up">
-                        <span class="eyebrow">Anında Şekillendirme</span>
-                        <h2>Mükemmel Toparlayıcı Etki</h2>
-                        <p>Özel ön kopça sistemi ve yan destek panelleri sayesinde göğüsleri anında dikleştirir, sarkmaları toparlar ve pürüzsüz bir görünüm sağlar.</p>
-                    </div>
-                </div>
-                <div class="story-step" id="step-3">
-                    <div class="story-content gs-reveal-up">
-                        <span class="eyebrow">Balensiz Konfor</span>
-                        <h2>Telsiz ve Nefes Alabilen Lüks</h2>
-                        <p>Sert teller veya rahatsız edici dikişler yok. Şampanya Altını mikro liflerle dokunmuş kumaşı gün boyu yokmuş hissi verir, cildinizin nefes almasını sağlar.</p>
-                    </div>
-                </div>
-            </section>
+    <div class="story__block story__block--1">
+      <div class="story__image-wrap parallax-item" data-speed="0.15">
+        <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/A52BAEDA-AD7A-41A0-8437-476C061599DE.webp?v=1783289501"
+             alt="LIAXIS sutyeni giyen kadın, dik ve zarif bir duruşla"
+             class="story__image reveal-image"
+             loading="lazy">
+      </div>
+      <div class="story__text">
+        <p class="story__index">01</p>
+        <h3 class="reveal-lines">
+          <span class="reveal-line"><span>Ekranlar önünde geçen</span></span>
+          <span class="reveal-line"><span>saatler, omuzlarınızı</span></span>
+          <span class="reveal-line"><span>öne çeker.</span></span>
+        </h3>
+        <p class="reveal-line"><span>Masa başında geçirdiğimiz gün, telefona eğilen boyun, sırt kaslarının zayıflaması… Duruş bozukluğu bir alışkanlık değil, bir sonuçtur. LIAXIS bu sonucu tersine çevirmek için tasarlandı.</span></p>
+      </div>
+    </div>
 
-            <!-- Yaşam Tarzı Paralaks -->
-            <section id="lifestyle" class="panel">
-                <div class="parallax-container">
-                    <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932" class="parallax-img" alt="Liaxis Yaşam Tarzı">
-                    <div class="parallax-overlay">
-                        <h2 class="gs-reveal">Hem Sağlık Hem Zarafet</h2>
-                    </div>
-                </div>
-            </section>
+    <div class="story__block story__block--2">
+      <div class="story__text">
+        <p class="story__index">02</p>
+        <h3 class="reveal-lines">
+          <span class="reveal-line"><span>Küçük bir destek,</span></span>
+          <span class="reveal-line"><span>büyük bir fark yaratır.</span></span>
+        </h3>
+        <p class="reveal-line"><span>LIAXIS'in X şeklindeki sırt bantları omuzlarınızı nazikçe geriye çekerken, esnek kumaşı vücudunuzu kısıtlamadan hareket özgürlüğü tanır. Gün içinde fark etmeden, gece fark edersiniz.</span></p>
+      </div>
+      <div class="story__image-wrap story__image-wrap--right parallax-item" data-speed="0.22">
+        <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/BD4AFD94-0A51-4FAF-8C62-D78A7ED5D024.webp?v=1783289501"
+             alt="Duruş dönüşümünü gösteren yakın çekim"
+             class="story__image reveal-image"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
 
-            <!-- Ekstra Faydalar Bölümü -->
-            <section id="benefits" class="panel dark-section">
-                <div class="container">
-                    <div class="benefits-grid">
-                        <div class="benefit-card gs-reveal-up">
-                            <h3>Önden Kopçalı Tasarım</h3>
-                            <p>Giyip çıkarması son derece kolaydır. Kademeli ayarı ile vücudunuza kusursuz uyum sağlar.</p>
-                        </div>
-                        <div class="benefit-card gs-reveal-up" style="transition-delay: 0.1s;">
-                            <h3>Koltuk Altı Toparlama</h3>
-                            <p>Geniş yan bantları sayesinde koltuk altı ve sırttaki fazlalıkları gizler, pürüzsüz bir sırt dekoltesi sunar.</p>
-                        </div>
-                        <div class="benefit-card gs-reveal-up" style="transition-delay: 0.2s;">
-                            <h3>Kıyafet Altında Görünmez</h3>
-                            <p>Lazer kesim kenarları ve dikişsiz yapısı sayesinde en dar kıyafetlerinizin altında bile iz yapmaz.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  <!-- ============================================= -->
+  <!-- 3. INTERACTIVE 3D PRODUCT SECTION              -->
+  <!-- ============================================= -->
+  <section class="product-3d" id="product-3d">
+    <div class="product-3d__intro">
+      <span class="eyebrow reveal-line"><span>360° İNCELEME</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Her açıdan</span></span>
+        <span class="reveal-line"><span>mükemmel.</span></span>
+      </h2>
+      <p class="product-3d__hint">Sürükleyerek döndürün</p>
+    </div>
 
-            <!-- Shopify Ürün Modülü -->
-            <section id="shop-module" class="panel">
-                <div class="container split align-start">
-                    <div class="product-images gs-reveal-up">
-                        <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" alt="LIAXIS Premium Dik Duruş Sütyeni" class="main-product-img">
-                    </div>
-                    <div class="product-details gs-reveal-up">
-                        <div class="brand-tag">LIAXIS Signature</div>
-                        <h1 class="product-name">Premium Dik Duruş & Toparlayıcı Sütyen</h1>
-                        
-                        <div class="price-container">
-                            <span class="current-price">₺1.099</span>
-                            <span class="old-price">₺1.500</span>
-                            <span class="discount-badge">%27 İNDİRİM</span>
-                        </div>
-                        
-                        <p class="product-description">
-                            Duruşunuzu düzelten, sırt ağrılarınızı hafifleten ve göğüslerinizi kusursuzca toparlayan biyomekanik tasarım. Balensiz lüks konforu şimdi deneyimleyin.
-                        </p>
-                        
-                        <form id="add-to-cart-form" class="shopify-form">
-                            <!-- Shopify Varyant Seçimi (Temsili Görsel Boyut/Renk) -->
-                            <div class="variant-selectors">
-                                <select name="id" class="luxury-select">
-                                    <option value="123456789">Beden: S - Şampanya Beji</option>
-                                    <option value="123456790">Beden: M - Şampanya Beji</option>
-                                    <option value="123456791">Beden: L - Şampanya Beji</option>
-                                    <option value="123456792">Beden: XL - Şampanya Beji</option>
-                                </select>
-                            </div>
+    <div class="product-3d__stage">
+      <canvas id="productCanvas" aria-label="LIAXIS sutyeninin döndürülebilir 3 boyutlu görünümü"></canvas>
 
-                            <button type="submit" class="btn-primary" id="add-to-cart-btn">
-                                <span>Sepete Ekle</span>
-                                <div class="btn-loader"></div>
-                            </button>
-                        </form>
-                        
-                        <div class="guarantees">
-                            <span>✦ Ücretsiz Hızlı Kargo</span>
-                            <span>✦ 30 Gün İade Garantisi</span>
-                            <span>✦ Gizli Paketleme</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <div class="product-3d__loading" id="model3dLoading">
+        <div class="product-3d__loading-bar"><div class="product-3d__loading-fill" id="model3dLoadingFill"></div></div>
+      </div>
 
-            <!-- Minimal Alt Bilgi -->
-            <footer>
-                <div class="container footer-content">
-                    <div class="logo">LIAXIS</div>
-                    <p>&copy; 2026 LIAXIS Wellness. Lüksün Yeniden Tanımı.</p>
-                </div>
-            </footer>
+      <button class="product-3d__autorotate" id="autoRotateToggle" aria-pressed="true">
+        <span class="product-3d__autorotate-dot"></span>
+        <span>Otomatik döndürme</span>
+      </button>
 
+      <div class="product-3d__callout product-3d__callout--1" data-callout="straps" style="--x:72%; --y:32%;">
+        <span class="product-3d__callout-dot"></span>
+        <div class="product-3d__callout-card">
+          <p class="product-3d__callout-title">X-Sırt Bantları</p>
+          <p class="product-3d__callout-text">Omuzları nazikçe geriye çeker, baskı yapmadan destekler.</p>
         </div>
-    </main>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="product-3d__callout product-3d__callout--2" data-callout="mesh" style="--x:22%; --y:48%;">
+        <span class="product-3d__callout-dot"></span>
+        <div class="product-3d__callout-card">
+          <p class="product-3d__callout-title">Nefes Alan Kumaş</p>
+          <p class="product-3d__callout-text">Mikro örgü doku, gün boyu serin ve kuru tutar.</p>
+        </div>
+      </div>
+
+      <div class="product-3d__callout product-3d__callout--3" data-callout="clip" style="--x:68%; --y:70%;">
+        <span class="product-3d__callout-dot"></span>
+        <div class="product-3d__callout-card">
+          <p class="product-3d__callout-title">Ayarlanabilir Kopça</p>
+          <p class="product-3d__callout-text">3 kademeli kopça, bedeninize özel hassas ayar sağlar.</p>
+        </div>
+      </div>
+
+      <div class="product-3d__callout product-3d__callout--4" data-callout="padding" style="--x:38%; --y:80%;">
+        <span class="product-3d__callout-dot"></span>
+        <div class="product-3d__callout-card">
+          <p class="product-3d__callout-title">Çıkarılabilir Destek</p>
+          <p class="product-3d__callout-text">Süngeri çıkarıp takarak konfor seviyenizi siz belirleyin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 4. BENEFITS SECTION                            -->
+  <!-- ============================================= -->
+  <section class="benefits" id="benefits">
+    <div class="benefits__intro">
+      <span class="eyebrow reveal-line"><span>NEDEN LIAXIS</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Tasarlandığı her</span></span>
+        <span class="reveal-line"><span>detayda amaç var.</span></span>
+      </h2>
+    </div>
+
+    <div class="benefits__grid">
+      <article class="benefit-card reveal-up">
+        <div class="benefit-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v22M8 8c1.5 3 4.5 3 6 0s4.5-3 6 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Anında Duruş Desteği</h3>
+        <p>X-sırt bantları omuzlarınızı ilk andan itibaren nazikçe geriye çeker.</p>
+      </article>
+
+      <article class="benefit-card reveal-up">
+        <div class="benefit-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 14c4-6 16-6 20 0M4 14c4 6 16 6 20 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Nefes Alan Konfor</h3>
+        <p>Mikro örgü kumaşı sayesinde tüm gün, hatta antrenmanda bile taşınabilir.</p>
+      </article>
+
+      <article class="benefit-card reveal-up">
+        <div class="benefit-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="5" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M9 14h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Görünmez Tasarım</h3>
+        <p>İnce hatları ve dikişsiz kesimiyle en ince kıyafetlerin altında bile fark edilmez.</p>
+      </article>
+
+      <article class="benefit-card reveal-up">
+        <div class="benefit-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="9" r="4" stroke="currentColor" stroke-width="1.3"/><path d="M6 24c0-5 4-8 8-8s8 3 8 8" stroke="currentColor" stroke-width="1.3"/></svg>
+        </div>
+        <h3>Kadın Anatomisine Özel</h3>
+        <p>Göğüs desteğiyle sırt hizalamasını tek bir parçada birleştiren özel kalıp.</p>
+      </article>
+
+      <article class="benefit-card reveal-up">
+        <div class="benefit-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l3 6 6.5.9-4.7 4.6 1.1 6.5L14 18.9 8.1 22l1.1-6.5L4.5 10.9 11 10l3-6z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Klinik Onaylı</h3>
+        <p>Fizyoterapistlerin katkılarıyla geliştirildi, gerçek duruş ihtiyaçlarına göre şekillendi.</p>
+      </article>
+
+      <article class="benefit-card reveal-up">
+        <div class="benefit-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 6h16v16H6z" stroke="currentColor" stroke-width="1.3"/><path d="M6 12h16M12 6v16" stroke="currentColor" stroke-width="1.1"/></svg>
+        </div>
+        <h3>XS'ten XL'e</h3>
+        <p>3 kademeli ayarlanabilir kopça sistemiyle her bedene hassas uyum.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 5. BEFORE / AFTER SECTION                      -->
+  <!-- ============================================= -->
+  <section class="transformation" id="transformation">
+    <div class="transformation__intro">
+      <span class="eyebrow reveal-line"><span>GERÇEK ETKİ</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Duruşunuzdaki farkı</span></span>
+        <span class="reveal-line"><span>gözlerinizle görün.</span></span>
+      </h2>
+    </div>
+
+    <div class="transformation__compare" id="compareSlider">
+      <div class="transformation__frame">
+        <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/BD4AFD94-0A51-4FAF-8C62-D78A7ED5D024.webp?v=1783289501"
+             alt="LIAXIS öncesi duruş"
+             class="transformation__img transformation__img--after"
+             loading="lazy">
+        <div class="transformation__clip" id="compareClip">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932"
+               alt="LIAXIS sonrası düzelmiş duruş"
+               class="transformation__img transformation__img--before"
+               loading="lazy">
+        </div>
+        <div class="transformation__handle" id="compareHandle">
+          <span class="transformation__handle-grip"></span>
+        </div>
+        <span class="transformation__tag transformation__tag--left">ÖNCE</span>
+        <span class="transformation__tag transformation__tag--right">SONRA</span>
+      </div>
+      <input type="range" min="0" max="100" value="50" class="transformation__range" id="compareRange" aria-label="Önce ve sonra karşılaştırma kaydırıcısı">
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 6. COMFORT SECTION                             -->
+  <!-- ============================================= -->
+  <section class="comfort" id="comfort">
+    <div class="comfort__image-wrap parallax-item" data-speed="0.1">
+      <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932"
+           alt="LIAXIS sutyeni ile günlük konfor anı"
+           class="comfort__image reveal-image"
+           loading="lazy">
+    </div>
+    <div class="comfort__text">
+      <span class="eyebrow reveal-line"><span>KONFOR</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Sabahtan akşama,</span></span>
+        <span class="reveal-line"><span>hissetmeden taşıyın.</span></span>
+      </h2>
+      <p class="reveal-line"><span>Nemi emen mikro örgü kumaşımız cildinizle birlikte nefes alır. Dikişsiz kenarlar tahriş yapmaz, esnek bantlar hareketinizi kısıtlamaz. Ofisten spor salonuna, LIAXIS sizinle birlikte hareket eder.</span></p>
+      <ul class="comfort__list">
+        <li class="reveal-line"><span>%100 nem emici mikro örgü</span></li>
+        <li class="reveal-line"><span>Dikişsiz, tahriş yapmayan kenarlar</span></li>
+        <li class="reveal-line"><span>4 yönlü esneme kabiliyeti</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 7. GALLERY SECTION (HORIZONTAL SCROLL)         -->
+  <!-- ============================================= -->
+  <section class="gallery" id="gallery">
+    <div class="gallery__intro">
+      <span class="eyebrow reveal-line"><span>DETAYLAR</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Zarafet detaylarda</span></span>
+        <span class="reveal-line"><span>gizlidir.</span></span>
+      </h2>
+    </div>
+
+    <div class="gallery__track-wrap" id="galleryTrackWrap">
+      <div class="gallery__track" id="galleryTrack">
+        <figure class="gallery__item">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" alt="LIAXIS ön görünüm detayı" loading="lazy">
+          <figcaption><span>01</span> Silüet</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/A52BAEDA-AD7A-41A0-8437-476C061599DE.webp?v=1783289501" alt="LIAXIS kumaş dokusu detayı" loading="lazy">
+          <figcaption><span>02</span> Doku</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/BD4AFD94-0A51-4FAF-8C62-D78A7ED5D024.webp?v=1783289501" alt="LIAXIS sırt bandı detayı" loading="lazy">
+          <figcaption><span>03</span> Sırt Bandı</figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932" alt="LIAXIS günlük kullanım detayı" loading="lazy">
+          <figcaption><span>04</span> Günlük Kullanım</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 8. REVIEWS SECTION                             -->
+  <!-- ============================================= -->
+  <section class="reviews" id="reviews">
+    <div class="reviews__intro">
+      <span class="eyebrow reveal-line"><span>YORUMLAR</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>312 kadının</span></span>
+        <span class="reveal-line"><span>tercihi.</span></span>
+      </h2>
+      <div class="reviews__summary">
+        <span class="reviews__score">4.9</span>
+        <span class="reviews__stars" aria-hidden="true">★★★★★</span>
+        <span class="reviews__count">312 doğrulanmış yorum</span>
+      </div>
+    </div>
+
+    <div class="reviews__grid">
+      <article class="review-card reveal-up">
+        <span class="review-card__stars" aria-hidden="true">★★★★★</span>
+        <p class="review-card__text">"İlk gün fark ettim; üç haftadır düzenli kullanıyorum ve sırt ağrım neredeyse hiç yok. Kıyafetin altında görünmüyor bile."</p>
+        <div class="review-card__meta">
+          <span class="review-card__name">Elif K.</span>
+          <span class="review-card__badge">Doğrulanmış Alıcı</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal-up">
+        <span class="review-card__stars" aria-hidden="true">★★★★★</span>
+        <p class="review-card__text">"Ofiste 9 saat masa başındayım. LIAXIS sayesinde günün sonunda omuzlarım artık ağrımıyor. Kumaşı da gerçekten çok yumuşak."</p>
+        <div class="review-card__meta">
+          <span class="review-card__name">Zeynep A.</span>
+          <span class="review-card__badge">Doğrulanmış Alıcı</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal-up">
+        <span class="review-card__stars" aria-hidden="true">★★★★★</span>
+        <p class="review-card__text">"Fizyoterapistim önerdi. Beklentimin ötesinde bir ürün, hem şık hem de gerçekten işlevsel."</p>
+        <div class="review-card__meta">
+          <span class="review-card__name">Selin D.</span>
+          <span class="review-card__badge">Doğrulanmış Alıcı</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal-up">
+        <span class="review-card__stars" aria-hidden="true">★★★★★</span>
+        <p class="review-card__text">"Beden değişimi kolay oldu, kargo hızlıydı. Artık spor yaparken de bunu tercih ediyorum."</p>
+        <div class="review-card__meta">
+          <span class="review-card__name">Merve T.</span>
+          <span class="review-card__badge">Doğrulanmış Alıcı</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal-up">
+        <span class="review-card__stars" aria-hidden="true">★★★★★</span>
+        <p class="review-card__text">"Kaliteli bir ürün ne demek gösteriyor. Dikişleri, kumaşı, kutusuna kadar her şey premium hissettiriyor."</p>
+        <div class="review-card__meta">
+          <span class="review-card__name">Aslı Ö.</span>
+          <span class="review-card__badge">Doğrulanmış Alıcı</span>
+        </div>
+      </article>
+
+      <article class="review-card reveal-up">
+        <span class="review-card__stars" aria-hidden="true">★★★★★</span>
+        <p class="review-card__text">"Annem için aldım, o kadar sevdi ki şimdi ben de kendime sipariş verdim. Aile boyu tavsiye ediyoruz."</p>
+        <div class="review-card__meta">
+          <span class="review-card__name">Buse Y.</span>
+          <span class="review-card__badge">Doğrulanmış Alıcı</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 9. PRODUCT PURCHASE SECTION                    -->
+  <!-- ============================================= -->
+  <section class="purchase" id="purchase">
+    <div class="purchase__gallery">
+      <div class="purchase__gallery-main">
+        <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546"
+             alt="LIAXIS Premium Duruş Destek Sutyeni"
+             id="purchaseMainImage"
+             loading="lazy">
+      </div>
+      <div class="purchase__gallery-thumbs" id="purchaseThumbs">
+        <button class="purchase__thumb is-active" data-image="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" aria-label="Görsel 1">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/B3A7373A-EB9B-477D-9EF6-CB11E934B610.webp?v=1783289546" alt="" loading="lazy">
+        </button>
+        <button class="purchase__thumb" data-image="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/A52BAEDA-AD7A-41A0-8437-476C061599DE.webp?v=1783289501" aria-label="Görsel 2">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/A52BAEDA-AD7A-41A0-8437-476C061599DE.webp?v=1783289501" alt="" loading="lazy">
+        </button>
+        <button class="purchase__thumb" data-image="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/BD4AFD94-0A51-4FAF-8C62-D78A7ED5D024.webp?v=1783289501" aria-label="Görsel 3">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/BD4AFD94-0A51-4FAF-8C62-D78A7ED5D024.webp?v=1783289501" alt="" loading="lazy">
+        </button>
+        <button class="purchase__thumb" data-image="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932" aria-label="Görsel 4">
+          <img src="https://cdn.shopify.com/s/files/1/0761/3366/2774/files/9F36B6D5-639E-43A5-A249-2369F1B9690A.webp?v=1782998932" alt="" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <div class="purchase__info">
+      <span class="eyebrow">LIAXIS PREMIUM</span>
+      <h2 class="purchase__title">Duruş Destek Sutyeni</h2>
+
+      <div class="purchase__rating">
+        <span aria-hidden="true">★★★★★</span>
+        <span>4.9 · 312 yorum</span>
+      </div>
+
+      <p class="purchase__price">
+        <span class="purchase__price-current" id="purchasePrice">₺1.290,00</span>
+      </p>
+
+      <p class="purchase__desc">X-sırt bantları, nefes alan mikro örgü kumaşı ve çıkarılabilir destek süngeriyle geliştirilen, fizyoterapist onaylı premium duruş destek sutyeni.</p>
+
+      <div class="purchase__option">
+        <span class="purchase__option-label">Renk — <em id="selectedColorLabel">Ten</em></span>
+        <div class="color-selector" id="colorSelector" role="radiogroup" aria-label="Renk seçimi">
+          <button class="color-swatch is-active" style="--swatch:#D8B8A8" data-color="Ten" role="radio" aria-checked="true" aria-label="Ten rengi"></button>
+          <button class="color-swatch" style="--swatch:#1B1916" data-color="Siyah" role="radio" aria-checked="false" aria-label="Siyah renk"></button>
+          <button class="color-swatch" style="--swatch:#C9BBA6" data-color="Kum" role="radio" aria-checked="false" aria-label="Kum rengi"></button>
+        </div>
+      </div>
+
+      <div class="purchase__option">
+        <span class="purchase__option-label">Beden</span>
+        <div class="size-selector" id="sizeSelector" role="radiogroup" aria-label="Beden seçimi">
+          <button class="size-btn" data-size="XS" role="radio" aria-checked="false">XS</button>
+          <button class="size-btn is-active" data-size="S" role="radio" aria-checked="true">S</button>
+          <button class="size-btn" data-size="M" role="radio" aria-checked="false">M</button>
+          <button class="size-btn" data-size="L" role="radio" aria-checked="false">L</button>
+          <button class="size-btn" data-size="XL" role="radio" aria-checked="false">XL</button>
+        </div>
+        <button class="size-guide-link" id="sizeGuideBtn">Beden rehberi</button>
+      </div>
+
+      <div class="purchase__option purchase__option--row">
+        <span class="purchase__option-label">Adet</span>
+        <div class="qty-stepper" id="qtyStepper">
+          <button class="qty-stepper__btn" id="qtyMinus" aria-label="Azalt">−</button>
+          <span class="qty-stepper__value" id="qtyValue">1</span>
+          <button class="qty-stepper__btn" id="qtyPlus" aria-label="Artır">+</button>
+        </div>
+      </div>
+
+      <button class="btn btn--primary btn--full" id="addToCartBtn">
+        <span>Sepete Ekle</span>
+        <span class="btn__price" id="addToCartPrice">₺1.290,00</span>
+      </button>
+
+      <ul class="purchase__trust">
+        <li>150 gün içinde ücretsiz iade</li>
+        <li>2-4 iş günü içinde kargoda</li>
+        <li>Fizyoterapist onaylı tasarım</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 10. FAQ SECTION                                -->
+  <!-- ============================================= -->
+  <section class="faq" id="faq">
+    <div class="faq__intro">
+      <span class="eyebrow reveal-line"><span>MERAK EDİLENLER</span></span>
+      <h2 class="section-title reveal-lines">
+        <span class="reveal-line"><span>Sıkça sorulan</span></span>
+        <span class="reveal-line"><span>sorular.</span></span>
+      </h2>
+    </div>
+
+    <div class="faq__list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>Sutyeni gün boyu rahatça giyebilir miyim?</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Evet. Nemi emen mikro örgü kumaşı ve dikişsiz kenarları sayesinde LIAXIS, ofisten spor salonuna kadar gün boyu rahatlıkla giyilecek şekilde tasarlandı.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>Beden seçimimi nasıl yapmalıyım?</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Mevcut sutyen bedeninizi baz alarak beden rehberimizdeki göğüs altı ve göğüs çevresi ölçülerini karşılaştırmanızı öneririz. Emin değilseniz iki beden arası ölçünüzde bir küçüğü tercih edin, ayarlanabilir kopça sistemi hassas uyum sağlar.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>Kumaş hangi malzemeden üretiliyor?</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>%78 naylon, %22 elastan karışımlı mikro örgü kumaş kullanıyoruz. Bu karışım hem nefes almayı hem de 4 yönlü esnekliği garanti eder.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>Yıkama talimatları nelerdir?</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>30°C'de narin yıkama programında, çamaşır filesi içinde yıkanmasını öneririz. Kurutma makinesi kullanmayın, düz sererek kurutun.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>Kargo ve iade politikanız nedir?</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Siparişiniz 2-4 iş günü içinde kargoya verilir. Ürünü teslim aldığınız tarihten itibaren 150 gün içinde, kullanılmamış ve etiketli olması koşuluyla ücretsiz iade edebilirsiniz.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span>Duruş düzelmesi ne kadar sürede hissedilir?</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Çoğu kullanıcı ilk kullanımdan itibaren omuz farkındalığında anında bir değişim hissediyor. Düzenli kullanımla birlikte 3-4 hafta içinde kas hafızasında kalıcı bir iyileşme gözlemleniyor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- 11. FINAL CTA SECTION                          -->
+  <!-- ============================================= -->
+  <section class="final-cta" id="finalCta">
+    <div class="final-cta__bg parallax-item" data-speed="0.08"></div>
+    <div class="final-cta__content">
+      <h2 class="final-cta__title reveal-lines">
+        <span class="reveal-line"><span>Doğru duruş,</span></span>
+        <span class="reveal-line"><span><em>bugün</em> başlar.</span></span>
+      </h2>
+      <a href="#purchase" class="btn btn--primary btn--large">
+        <span>LIAXIS'i Keşfet</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================= -->
+<!-- FOOTER                                         -->
+<!-- ============================================= -->
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <span class="site-footer__logo">LIAXIS</span>
+      <p>Duruşun yeni ekseni. Fizyoterapist katkılarıyla geliştirilen premium duruş destek sutyeni.</p>
+      <div class="site-footer__social" aria-label="Sosyal medya">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Pinterest">PT</a>
+      </div>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Mağaza">
+      <h3>Mağaza</h3>
+      <a href="#purchase">Duruş Destek Sutyeni</a>
+      <a href="#gallery">Detaylar</a>
+      <a href="#reviews">Yorumlar</a>
+    </nav>
+
+    <nav class="site-footer__col" aria-label="Şirket">
+      <h3>Şirket</h3>
+      <a href="#story">Hikayemiz</a>
+      <a href="#">Sürdürülebilirlik</a>
+      <a href="#">Kariyer</a>
+    </nav>
+
+    <nav class="site-footer__col" aria-label="Destek">
+      <h3>Destek</h3>
+      <a href="#faq">S.S.S.</a>
+      <a href="#">Kargo ve İade</a>
+      <a href="#">Beden Rehberi</a>
+      <a href="#">İletişim</a>
+    </nav>
+
+    <div class="site-footer__col site-footer__newsletter">
+      <h3>Bültenimize Katılın</h3>
+      <p>Yeni ürünler ve özel fırsatlardan ilk siz haberdar olun.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" required placeholder="E-posta adresiniz" aria-label="E-posta adresiniz">
+        <button type="submit" aria-label="Abone ol">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <p>© 2026 LIAXIS. Tüm hakları saklıdır.</p>
+    <div class="site-footer__legal">
+      <a href="#">Gizlilik Politikası</a>
+      <a href="#">Kullanım Koşulları</a>
+      <a href="#">Çerez Politikası</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================= -->
+<!-- CART DRAWER                                    -->
+<!-- ============================================= -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Alışveriş sepeti" aria-hidden="true">
+  <div class="cart-drawer__header">
+    <h2>Sepetiniz <span id="cartDrawerCount">(0)</span></h2>
+    <button class="cart-drawer__close" id="cartCloseBtn" aria-label="Sepeti kapat">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.3"/></svg>
+    </button>
+  </div>
+
+  <div class="cart-drawer__body" id="cartDrawerBody">
+    <div class="cart-drawer__empty" id="cartEmptyState">
+      <p>Sepetiniz henüz boş.</p>
+      <a href="#purchase" class="btn btn--ghost" id="cartEmptyCta"><span>Alışverişe Başla</span></a>
+    </div>
+    <ul class="cart-items" id="cartItemsList"></ul>
+  </div>
+
+  <div class="cart-drawer__footer" id="cartDrawerFooter">
+    <div class="cart-drawer__subtotal">
+      <span>Ara Toplam</span>
+      <span id="cartSubtotal">₺0,00</span>
+    </div>
+    <p class="cart-drawer__note">Kargo ve vergiler ödeme sırasında hesaplanır.</p>
+    <button class="btn btn--primary btn--full" id="cartCheckoutBtn"><span>Ödemeye Geç</span></button>
+  </div>
+</aside>
+
+<!-- ============================================= -->
+<!-- SIZE GUIDE MODAL                               -->
+<!-- ============================================= -->
+<div class="modal-overlay" id="sizeGuideOverlay"></div>
+<div class="size-guide-modal" id="sizeGuideModal" role="dialog" aria-modal="true" aria-labelledby="sizeGuideTitle" aria-hidden="true">
+  <div class="size-guide-modal__header">
+    <h2 id="sizeGuideTitle">Beden Rehberi</h2>
+    <button class="cart-drawer__close" id="sizeGuideCloseBtn" aria-label="Kapat">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.3"/></svg>
+    </button>
+  </div>
+  <table class="size-guide-table">
+    <thead>
+      <tr><th>Beden</th><th>Göğüs Altı (cm)</th><th>Göğüs Çevresi (cm)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>XS</td><td>68–72</td><td>80–84</td></tr>
+      <tr><td>S</td><td>73–77</td><td>85–89</td></tr>
+      <tr><td>M</td><td>78–82</td><td>90–94</td></tr>
+      <tr><td>L</td><td>83–88</td><td>95–100</td></tr>
+      <tr><td>XL</td><td>89–94</td><td>101–106</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================= -->
+<!-- SCRIPTS                                        -->
+<!-- ============================================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
