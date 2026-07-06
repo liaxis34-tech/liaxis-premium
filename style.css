@@ -1,4 +1,24 @@
-/* style.css */
+html,body{
+margin:0;
+padding:0;
+overflow-x:hidden;
+background:#0b0b0b;
+color:#fff;
+font-family:Inter,sans-serif;
+}
+
+*{
+box-sizing:border-box;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+section{
+position:relative;
+}/* style.css */
 :root {
     --bg-color: #050505;
     --text-color: #f4f4f4;
