@@ -242,3 +242,164 @@ em{ font-style: italic; color: var(--gold-deep); }
   font-family: var(--display);
   font-weight: 400;
   font-size: clamp(2.2rem, 5
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:80px;
+padding:140px 8vw;
+}
+
+.story-content h2{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(50px,7vw,110px);
+font-weight:300;
+line-height:.95;
+margin-bottom:30px;
+}
+
+.story-content p{
+max-width:500px;
+line-height:1.9;
+opacity:.75;
+}
+
+.story-image{
+width:100%;
+height:800px;
+object-fit:cover;
+}
+
+.product{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+padding:140px 8vw;
+background:#f1ece4;
+}
+
+.product img{
+width:100%;
+max-width:700px;
+margin:auto;
+}
+
+.label{
+letter-spacing:.3em;
+font-size:12px;
+text-transform:uppercase;
+display:block;
+margin-bottom:20px;
+}
+
+.product-info h2{
+font-family:'Cormorant Garamond',serif;
+font-size:70px;
+font-weight:300;
+margin-bottom:20px;
+}
+
+.product-info p{
+line-height:1.8;
+opacity:.75;
+margin-bottom:30px;
+}
+
+.price{
+font-size:38px;
+margin-bottom:30px;
+font-weight:600;
+}
+
+.reviews{
+padding:140px 8vw;
+}
+
+.reviews h2{
+font-family:'Cormorant Garamond',serif;
+font-size:70px;
+font-weight:300;
+text-align:center;
+margin-bottom:80px;
+}
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.review{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.review p{
+line-height:1.8;
+margin-bottom:20px;
+}
+
+.cta{
+padding:180px 8vw;
+text-align:center;
+background:#ece4d8;
+}
+
+.cta h2{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(60px,8vw,140px);
+font-weight:300;
+margin-bottom:40px;
+}
+
+footer{
+padding:60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-top:1px solid rgba(0,0,0,.1);
+}
+
+@media(max-width:900px){
+
+.header{
+padding:20px;
+}
+
+nav{
+display:none;
+}
+
+.story,
+.product{
+grid-template-columns:1fr;
+gap:40px;
+padding:100px 24px;
+}
+
+.story-image{
+height:500px;
+}
+
+.reviews{
+padding:100px 24px;
+}
+
+.review-grid{
+grid-template-columns:1fr;
+}
+
+footer{
+flex-direction:column;
+gap:20px;
+text-align:center;
+}
+
+.hero-content{
+padding:0 24px 80px;
+}
+
+}
