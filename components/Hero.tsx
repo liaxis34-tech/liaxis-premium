@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import GrainOverlay from "./GrainOverlay";
@@ -9,6 +10,7 @@ import { goToBuyNow } from "@/lib/shopify";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
+  const bgImageRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLSpanElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
@@ -68,6 +70,12 @@ export default function Hero() {
         ease: "sine.inOut",
         delay: 2,
       });
+
+      gsap.fromTo(
+        bgImageRef.current,
+        { scale: 1 },
+        { scale: 1.12, duration: 22, ease: "sine.inOut", repeat: -1, yoyo: true }
+      );
     }, rootRef);
 
     return () => ctx.revert();
@@ -84,21 +92,28 @@ export default function Hero() {
       className="relative flex h-[100svh] min-h-[640px] w-full items-center justify-center overflow-hidden bg-ink"
     >
       <div className="absolute inset-0">
+        <div ref={bgImageRef} className="absolute inset-0">
+          <Image
+            src="/images/villa.webp"
+            alt="LIAXIS Postür Toparlayıcı Sütyen ile villa içinde şık bir duruş"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         {!videoFailed && (
           <video
             ref={videoRef}
-            className="h-full w-full object-cover opacity-80"
+            className="h-full w-full object-cover opacity-55"
             src="/videos/campaign.mp4"
-            poster="/images/cinematic.jpg"
+            poster="/images/villa.webp"
             autoPlay
             muted
             loop
             playsInline
             onError={() => setVideoFailed(true)}
           />
-        )}
-        {videoFailed && (
-          <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,#3a3227_0%,#1a1712_55%,#0d0c0a_100%)]" />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/85" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(13,12,10,0.65)_100%)]" />

@@ -1,9 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Activity, Wind, Clock, ShieldCheck, Sparkles, Feather } from "lucide-react";
 import SectionLabel from "./ui/SectionLabel";
+
+const STORY_IMAGES = [
+  {
+    src: "/images/hero-duo.webp",
+    alt: "LIAXIS Postür Toparlayıcı Sütyen çapraz sırt tasarımı, şehir manzaralı bir ortamda",
+  },
+  {
+    src: "/images/back-profile.webp",
+    alt: "LIAXIS Postür Toparlayıcı Sütyen ile zarif bir sırt profili",
+  },
+];
 
 const BENEFITS = [
   {
@@ -39,6 +51,15 @@ const BENEFITS = [
 ];
 
 export default function Benefits() {
+  const [storyIndex, setStoryIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStoryIndex((i) => (i + 1) % STORY_IMAGES.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="benefits" className="relative bg-ivory py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -57,14 +78,36 @@ export default function Benefits() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[4/5] w-full overflow-hidden lg:sticky lg:top-28 lg:h-[calc(100vh-8rem)] lg:aspect-auto"
           >
-            <Image
-              src="/images/hero-duo.webp"
-              alt="LIAXIS Postür Toparlayıcı Sütyen çapraz sırt tasarımı"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
+            <AnimatePresence mode="sync">
+              <motion.div
+                key={STORY_IMAGES[storyIndex].src}
+                initial={{ opacity: 0, scale: 1.06 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={STORY_IMAGES[storyIndex].src}
+                  alt={STORY_IMAGES[storyIndex].alt}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  priority={storyIndex === 0}
+                />
+              </motion.div>
+            </AnimatePresence>
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
+            <div className="absolute bottom-6 right-6 flex gap-1.5">
+              {STORY_IMAGES.map((img, i) => (
+                <span
+                  key={img.src}
+                  className={`h-1.5 w-1.5 rounded-full transition-colors duration-500 ${
+                    i === storyIndex ? "bg-ivory" : "bg-ivory/35"
+                  }`}
+                />
+              ))}
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-px overflow-hidden bg-ink/10 sm:grid-cols-2">
