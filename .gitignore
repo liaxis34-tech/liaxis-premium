@@ -30,3 +30,13 @@ next-env.d.ts
 
 # branding script output
 scripts/og-raw.png
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+
+!.env.example
