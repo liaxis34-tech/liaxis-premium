@@ -6,6 +6,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import clsx from "clsx";
 import { useSelectionStore } from "@/lib/store";
 import { goToBuyNow } from "@/lib/shopify";
+import { Logo, Monogram } from "./Logo";
 
 const LINKS = [
   { label: "3D Deneyim", href: "#experience" },
@@ -37,14 +38,9 @@ export default function Header() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
-        <a
-          href="#top"
-          className={clsx(
-            "font-display text-2xl tracking-[0.2em] transition-colors",
-            scrolled ? "text-ink" : "text-ivory"
-          )}
-        >
-          LIAXIS
+        <a href="#top" className="flex items-center gap-2.5" aria-label="LIAXIS anasayfa">
+          <Monogram tone={scrolled ? "dark" : "light"} className="h-7 w-7" />
+          <Logo tone={scrolled ? "ink" : "ivory"} className="text-2xl transition-colors" />
         </a>
 
         <nav className="hidden md:flex items-center gap-9">
@@ -96,6 +92,10 @@ export default function Header() {
             className="md:hidden overflow-hidden bg-ivory border-t border-ink/10"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
+              <div className="flex items-center gap-2.5 pb-4 border-b border-ink/5">
+                <Monogram tone="dark" className="h-6 w-6" />
+                <Logo tone="ink" className="text-lg" />
+              </div>
               {LINKS.map((link) => (
                 <a
                   key={link.href}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Reveal from "./ui/Reveal";
+import { Logo, Monogram } from "./Logo";
 
 const LINK_COLUMNS = [
   {
@@ -64,7 +65,10 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 gap-10 py-16 md:grid-cols-5">
           <div className="col-span-2">
-            <span className="font-display text-3xl tracking-[0.2em]">LIAXIS</span>
+            <div className="flex items-center gap-2.5">
+              <Monogram tone="light" className="h-8 w-8" />
+              <Logo tone="ivory" className="text-3xl" />
+            </div>
             <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-ivory/55">
               Duruşunuzu zarafetle destekleyen premium postür toparlayıcı sütyen
               koleksiyonu.
