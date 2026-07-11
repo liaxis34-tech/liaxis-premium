@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { Layers } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import SectionLabel from "./ui/SectionLabel";
@@ -10,18 +9,22 @@ const LAYERS = [
   {
     title: "Mikro-Modal Dış Yüzey",
     text: "Teninizi saran, ipeksi yumuşaklıkta nefes alabilir dış katman gün boyu ferahlık sağlar.",
+    tone: "#F4EFE6",
   },
   {
     title: "Esnek Destek Ağı",
     text: "Omurga hizasını destekleyen görünmez elastik iskelet, omuzları nazikçe geriye çeker.",
+    tone: "#E6D6BC",
   },
   {
     title: "Nem Dengeleyici İç Katman",
     text: "Teknik iç yüzey nemi dengeler, gün boyu kuru ve taze bir his sunar.",
+    tone: "#D8C39F",
   },
   {
     title: "Dikişsiz Bitiş",
     text: "Kıyafetlerinizin altında tamamen görünmez kalan, iz bırakmayan kenar işçiliği.",
+    tone: "#C9AD81",
   },
 ];
 
@@ -29,7 +32,7 @@ export default function FabricTech() {
   const sectionRef = useRef<HTMLElement>(null);
   const panelsRef = useRef<HTMLDivElement[]>([]);
   const progressRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -58,7 +61,11 @@ export default function FabricTech() {
           { width: `${((i + 1) / panels.length) * 100}%`, duration: 0.4 },
           i
         );
-        tl.to(imageRef.current, { scale: 1 + i * 0.04, duration: 0.4 }, i);
+        tl.to(
+          ringRef.current,
+          { rotate: i * 45, borderColor: LAYERS[i].tone, duration: 0.4 },
+          i
+        );
       });
 
       ScrollTrigger.refresh();
@@ -73,19 +80,7 @@ export default function FabricTech() {
       ref={sectionRef}
       className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-ink py-24 text-ivory md:py-0"
     >
-      <div className="absolute inset-0 opacity-[0.14] mix-blend-luminosity">
-        <Image
-          src="/images/cinematic.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-          aria-hidden
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/95 to-ink" />
-
-      <div className="relative mx-auto grid w-full max-w-7xl gap-14 px-6 md:grid-cols-2 md:items-center md:px-10">
+      <div className="mx-auto grid w-full max-w-7xl gap-14 px-6 md:grid-cols-2 md:items-center md:px-10">
         <div className="order-2 md:order-1">
           <SectionLabel>Kumaş Teknolojisi</SectionLabel>
           <h2 className="mt-6 font-display text-4xl font-light md:text-5xl">
@@ -125,17 +120,16 @@ export default function FabricTech() {
         </div>
 
         <div className="order-1 flex items-center justify-center md:order-2">
-          <div
-            ref={imageRef}
-            className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[2px] border border-ivory/10 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)]"
-          >
-            <Image
-              src="/images/detail.webp"
-              alt="LIAXIS kumaş ve kanca detayı"
-              fill
-              sizes="(min-width: 768px) 40vw, 90vw"
-              className="object-cover"
+          <div className="relative flex h-72 w-72 items-center justify-center md:h-96 md:w-96">
+            <div
+              ref={ringRef}
+              className="absolute inset-0 rounded-full border-2 transition-colors"
+              style={{ borderColor: LAYERS[0].tone }}
             />
+            <div className="absolute inset-8 rounded-full border border-ivory/15" />
+            <div className="absolute inset-16 rounded-full border border-ivory/10" />
+            <div className="absolute inset-28 rounded-full border border-ivory/10" />
+            <span className="font-display text-5xl italic text-champagne-light">L</span>
           </div>
         </div>
       </div>
