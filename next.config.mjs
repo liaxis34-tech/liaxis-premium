@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "cdn.shopify.com" },
-      { protocol: "https", hostname: "y70y80-51.myshopify.com" },
+      { protocol: "https", hostname: "*.myshopify.com" },
     ],
   },
 };

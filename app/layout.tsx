@@ -18,26 +18,26 @@ const sansFont = Jost({
   display: "swap",
 });
 
-const SEO_TITLE = "LIAXIS — Postür Toparlayıcı Sütyen | Duruşunuzun Zarif Gücü";
+const SEO_TITLE = "CHARMORA — Personalized Charm Jewelry | Wear Your Story";
 const SEO_DESCRIPTION =
-  "LIAXIS Postür Toparlayıcı Sütyen ile duruşunuz zarafetle desteklenir. Nefes alabilir premium kumaş, görünmez konfor ve gün boyu omurga desteği. Şimdi keşfedin.";
+  "Build a charm combination that is uniquely yours. CHARMORA's customizable ear cuffs and jewelry let you wear the story of your love, dreams, new beginnings and memories — crafted with luxury materials, gift-ready and made to be treasured.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://theliaxis.com"),
+  metadataBase: new URL("https://charmora.com"),
   title: {
     default: SEO_TITLE,
-    template: "%s | LIAXIS",
+    template: "%s | CHARMORA",
   },
   description: SEO_DESCRIPTION,
   keywords: [
-    "LIAXIS",
-    "postür sütyeni",
-    "postür toparlayıcı sütyen",
-    "duruş düzeltici",
-    "premium sütyen",
-    "duruş sütyeni",
+    "CHARMORA",
+    "personalized jewelry",
+    "custom charm jewelry",
+    "charm ear cuff",
+    "build your own charm",
+    "luxury jewelry gift",
   ],
-  authors: [{ name: "LIAXIS" }],
+  authors: [{ name: "CHARMORA" }],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -50,16 +50,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: SEO_TITLE,
     description: SEO_DESCRIPTION,
-    url: "https://theliaxis.com",
-    siteName: "LIAXIS",
-    locale: "tr_TR",
+    url: "https://charmora.com",
+    siteName: "CHARMORA",
+    locale: "en_US",
     type: "website",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "LIAXIS — Postür Toparlayıcı Sütyen",
+        alt: "CHARMORA — Wear Your Story",
       },
     ],
   },
@@ -75,14 +75,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1A1712",
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={`${displayFont.variable} ${sansFont.variable}`}>
+    <html lang="en" className={`${displayFont.variable} ${sansFont.variable}`}>
       <body>
         <SmoothScroll>{children}</SmoothScroll>
       </body>

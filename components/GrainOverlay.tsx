@@ -5,11 +5,11 @@ export default function GrainOverlay({ opacity = 0.05 }: { opacity?: number }) {
       style={{ opacity }}
       aria-hidden
     >
-      <filter id="liaxis-grain">
+      <filter id="charmora-grain">
         <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
         <feColorMatrix type="saturate" values="0" />
       </filter>
-      <rect width="100%" height="100%" filter="url(#liaxis-grain)" />
+      <rect width="100%" height="100%" filter="url(#charmora-grain)" />
     </svg>
   );
 }

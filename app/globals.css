@@ -32,16 +32,16 @@ html.lenis {
 }
 
 body {
-  background-color: #faf7f1;
-  color: #1a1712;
+  background-color: #ffffff;
+  color: #4b4b4b;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #d9be8f;
-  color: #1a1712;
+  background: #d9b6b8;
+  color: #2e2c2c;
 }
 
 ::-webkit-scrollbar {
@@ -49,13 +49,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f4efe6;
+  background: #f4e8e9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c9ad81;
+  background: #d9b6b8;
   border-radius: 999px;
-  border: 2px solid #f4efe6;
+  border: 2px solid #f4e8e9;
 }
 
 .text-balance {
@@ -67,15 +67,26 @@ body {
 }
 
 .gold-line {
-  background: linear-gradient(90deg, transparent, #b08d57, transparent);
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
 }
 
 .gold-text {
-  background: linear-gradient(120deg, #9e7f51, #e7d4ac, #9e7f51);
+  background: linear-gradient(120deg, #ac8a26, #e6cb74, #ac8a26);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(244, 232, 233, 0.25)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 @media (prefers-reduced-motion: reduce) {

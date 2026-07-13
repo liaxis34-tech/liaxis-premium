@@ -22,11 +22,11 @@ export default function Button({
         "group relative inline-flex items-center justify-center gap-2 overflow-hidden px-8 py-4 text-[11px] md:text-xs uppercase tracking-widest2 font-medium transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed",
         fullWidth && "w-full",
         variant === "primary" &&
-          "bg-ink text-ivory hover:bg-gold-dark border border-ink hover:border-gold-dark",
+          "bg-ink-deep text-white hover:bg-gold-dark border border-ink-deep hover:border-gold-dark",
         variant === "secondary" &&
-          "bg-transparent text-ink border border-ink/40 hover:border-ink hover:bg-ink/5",
+          "bg-transparent text-ink-deep border border-ink-deep/30 hover:border-ink-deep hover:bg-ink-deep/5",
         variant === "ghost" &&
-          "bg-transparent text-ivory border border-ivory/50 hover:bg-ivory hover:text-ink",
+          "bg-transparent text-white border border-white/50 hover:bg-white hover:text-ink-deep",
         className
       )}
       {...props}

@@ -1,124 +1,125 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import clsx from "clsx";
-import { useSelectionStore } from "@/lib/store";
-import { goToBuyNow } from "@/lib/shopify";
-import { Logo, Monogram } from "./Logo";
+import Logo from "./Logo";
+import CartDrawer from "./CartDrawer";
+import { useCartStore } from "@/lib/store";
+import { SIGNATURE_PRODUCT_HANDLE } from "@/lib/mock-data";
 
-const LINKS = [
-  { label: "3D Deneyim", href: "#experience" },
-  { label: "Avantajlar", href: "#benefits" },
-  { label: "Kumaş", href: "#fabric" },
-  { label: "Yorumlar", href: "#reviews" },
-  { label: "S.S.S.", href: "#faq" },
+const NAV_LINKS = [
+  { label: "Our Story", href: "/#story" },
+  { label: "Build Your Charm", href: "/#build" },
+  { label: "Shop", href: `/product/${SIGNATURE_PRODUCT_HANDLE}` },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const selectedVariantId = useSelectionStore((s) => s.selectedVariantId);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { totalQuantity, open } = useCartStore();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled
-          ? "bg-ivory/90 backdrop-blur-md border-b border-ink/10 py-3"
-          : "bg-transparent py-6"
-      )}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="LIAXIS anasayfa">
-          <Monogram tone={scrolled ? "dark" : "light"} className="h-7 w-7" />
-          <Logo tone={scrolled ? "ink" : "ivory"} className="text-2xl transition-colors" />
-        </a>
+    <>
+      <header
+        className={clsx(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          scrolled ? "bg-white/90 shadow-glass backdrop-blur-md" : "bg-transparent"
+        )}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+          <Link href="/" aria-label="Charmora home">
+            <Logo />
+          </Link>
 
-        <nav className="hidden md:flex items-center gap-9">
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={clsx(
-                "text-[11px] uppercase tracking-widest2 font-medium transition-colors hover:text-gold",
-                scrolled ? "text-ink/80" : "text-ivory/90"
-              )}
+          <nav className="hidden items-center gap-9 lg:flex">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-[11px] uppercase tracking-widest2 text-ink-soft transition-colors duration-300 hover:text-blush-700"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <button
+              aria-label="Open cart"
+              onClick={open}
+              className="relative flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-blush-50"
             >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => goToBuyNow(selectedVariantId())}
-            className={clsx(
-              "hidden md:inline-flex items-center gap-2 border px-5 py-2.5 text-[11px] uppercase tracking-widest2 font-medium transition-colors",
-              scrolled
-                ? "border-ink text-ink hover:bg-ink hover:text-ivory"
-                : "border-ivory text-ivory hover:bg-ivory hover:text-ink"
-            )}
-          >
-            <ShoppingBag size={14} strokeWidth={1.5} />
-            Satın Al
-          </button>
-
-          <button
-            aria-label="Menü"
-            className={clsx("md:hidden", scrolled ? "text-ink" : "text-ivory")}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
-          </button>
+              <ShoppingBag size={19} strokeWidth={1.4} />
+              {totalQuantity() > 0 && (
+                <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-[9px] font-medium text-white">
+                  {totalQuantity()}
+                </span>
+              )}
+            </button>
+            <button
+              aria-label="Open menu"
+              onClick={() => setMobileOpen(true)}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-blush-50 lg:hidden"
+            >
+              <Menu size={20} strokeWidth={1.4} />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
       <AnimatePresence>
-        {open && (
+        {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-ivory border-t border-ink/10"
+            className="fixed inset-0 z-[70] flex flex-col bg-white px-6 py-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
-              <div className="flex items-center gap-2.5 pb-4 border-b border-ink/5">
-                <Monogram tone="dark" className="h-6 w-6" />
-                <Logo tone="ink" className="text-lg" />
-              </div>
-              {LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="py-3 text-sm uppercase tracking-widest2 text-ink/80 border-b border-ink/5"
-                >
-                  {link.label}
-                </a>
-              ))}
+            <div className="flex items-center justify-between">
+              <Logo />
               <button
-                onClick={() => {
-                  setOpen(false);
-                  goToBuyNow(selectedVariantId());
-                }}
-                className="mt-4 bg-ink text-ivory py-3 text-xs uppercase tracking-widest2"
+                aria-label="Close menu"
+                onClick={() => setMobileOpen(false)}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-blush-50"
               >
-                Hemen Satın Al
+                <X size={20} strokeWidth={1.4} />
               </button>
             </div>
+            <nav className="mt-16 flex flex-col gap-8">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.06 * i, duration: 0.5 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-display text-3xl text-ink-deep"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+
+      <CartDrawer />
+    </>
   );
 }
