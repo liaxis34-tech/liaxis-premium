@@ -5,10 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "@/lib/gsap";
-import FloatingPetals from "./decor/FloatingPetals";
-import GlassPanels from "./decor/GlassPanels";
 import GoldLight from "./decor/GoldLight";
-import CharmCuffArt from "./ProductArt";
 import { SIGNATURE_PRODUCT_HANDLE } from "@/lib/mock-data";
 
 export default function Hero() {
@@ -54,16 +51,7 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden bg-blush-radial pt-24">
-      <Image
-        src="/images/atmosphere-bg.jpg"
-        alt=""
-        fill
-        priority
-        className="object-cover opacity-40 mix-blend-multiply"
-      />
       <GoldLight />
-      <GlassPanels />
-      <FloatingPetals />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 px-6 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
         <div ref={headlineRef} className="flex flex-col justify-center text-center lg:text-left">
@@ -96,8 +84,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-art relative mx-auto w-full max-w-md lg:max-w-lg">
-          <CharmCuffArt charms={["flower", "star", "moon", "gem"]} />
+        <div className="hero-art relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-[2px] shadow-luxe lg:max-w-lg">
+          <Image
+            src="/images/hero-petals.webp"
+            alt="Charmora signature charm ear cuff floating amid falling petals"
+            fill
+            priority
+            className="object-cover"
+            sizes="(min-width: 1024px) 32rem, 90vw"
+          />
         </div>
       </div>
 

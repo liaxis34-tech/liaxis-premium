@@ -10,6 +10,7 @@ import RecentlyViewed from "@/components/product/RecentlyViewed";
 import StickyAddToCart from "@/components/product/StickyAddToCart";
 import { getProduct } from "@/lib/shopify";
 import { getReviewSummary } from "@/lib/reviews";
+import { SIGNATURE_PRODUCT_IMAGES } from "@/lib/mock-data";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
@@ -44,7 +45,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <main className="pt-24">
         <section className="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <ProductGallery charms={["flower", "star", "moon", "gem"]} />
+            <ProductGallery images={SIGNATURE_PRODUCT_IMAGES} />
             <ProductInfo
               productHandle={product.handle}
               title={product.title}

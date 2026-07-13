@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Instagram, Star } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import SectionLabel from "./ui/SectionLabel";
@@ -5,6 +6,13 @@ import { Sparkle } from "./icons/CharmIcons";
 import { getProductReviews, getReviewSummary } from "@/lib/reviews";
 import { getInstagramPosts } from "@/lib/social";
 import { SIGNATURE_PRODUCT_HANDLE } from "@/lib/mock-data";
+
+const BRAND_GALLERY = [
+  "/images/hero-petals.webp",
+  "/images/product-glass.webp",
+  "/images/lifestyle-worn.webp",
+  "/images/product-clean.webp",
+];
 
 export default async function SocialProof() {
   const [summary, reviews, posts] = await Promise.all([
@@ -16,30 +24,52 @@ export default async function SocialProof() {
   return (
     <section id="reviews" className="relative bg-blush-50 py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <SectionLabel>Loved, Worn, Shared</SectionLabel>
-          <h2 className="mt-6 font-display text-4xl font-light text-ink-deep md:text-5xl">
-            Real stories from real customers
-          </h2>
-          {summary.count > 0 ? (
-            <div className="mt-5 flex items-center justify-center gap-2">
-              <div className="flex gap-0.5 text-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={16} fill={i < Math.round(summary.averageRating) ? "currentColor" : "none"} strokeWidth={1.3} />
-                ))}
-              </div>
-              <span className="text-sm text-ink-soft">
-                {summary.averageRating.toFixed(1)} from {summary.count} reviews
-              </span>
-            </div>
-          ) : (
-            <p className="mt-5 text-sm font-light text-ink-soft">
-              Be the first to share how you wear your Charmora.
-            </p>
-          )}
-        </Reveal>
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
+          <Reveal className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[2px] shadow-luxe lg:mx-0">
+            <Image
+              src="/images/community-hold.webp"
+              alt="A Charmora customer holding up her charm ear cuff to the camera"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 28rem, 90vw"
+            />
+          </Reveal>
 
-        {reviews.length > 0 ? (
+          <div className="text-center lg:text-left">
+            <SectionLabel>Loved, Worn, Shared</SectionLabel>
+            <h2 className="mt-6 font-display text-4xl font-light text-ink-deep md:text-5xl">
+              Real stories from real customers
+            </h2>
+            {summary.count > 0 ? (
+              <div className="mt-5 flex items-center justify-center gap-2 lg:justify-start">
+                <div className="flex gap-0.5 text-gold">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={16} fill={i < Math.round(summary.averageRating) ? "currentColor" : "none"} strokeWidth={1.3} />
+                  ))}
+                </div>
+                <span className="text-sm text-ink-soft">
+                  {summary.averageRating.toFixed(1)} from {summary.count} reviews
+                </span>
+              </div>
+            ) : (
+              <p className="mt-5 text-sm font-light text-ink-soft">
+                Be the first to share how you wear your Charmora.
+              </p>
+            )}
+
+            {reviews.length === 0 && (
+              <Reveal delay={0.1} className="mx-auto mt-10 flex max-w-md flex-col items-center rounded-[2px] border border-dashed border-blush-300 bg-white/50 px-10 py-12 text-center lg:mx-0 lg:items-start lg:text-left">
+                <Sparkle className="h-6 w-6 text-gold" />
+                <p className="mt-4 font-display text-xl text-ink-deep">Your story could be first</p>
+                <p className="mt-2 text-sm font-light text-ink-soft">
+                  Reviews connect automatically once Loox or Judge.me is linked to this store.
+                </p>
+              </Reveal>
+            )}
+          </div>
+        </div>
+
+        {reviews.length > 0 && (
           <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {reviews.slice(0, 6).map((review) => (
               <div key={review.id} className="rounded-[2px] border border-blush-200 bg-white p-7">
@@ -57,14 +87,6 @@ export default async function SocialProof() {
               </div>
             ))}
           </div>
-        ) : (
-          <Reveal delay={0.1} className="mx-auto mt-16 flex max-w-md flex-col items-center rounded-[2px] border border-dashed border-blush-300 bg-white/50 px-10 py-14 text-center">
-            <Sparkle className="h-6 w-6 text-gold" />
-            <p className="mt-4 font-display text-xl text-ink-deep">Your story could be first</p>
-            <p className="mt-2 text-sm font-light text-ink-soft">
-              Reviews connect automatically once Loox or Judge.me is linked to this store.
-            </p>
-          </Reveal>
         )}
 
         <div className="mt-20">
@@ -93,16 +115,24 @@ export default async function SocialProof() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="flex aspect-square items-center justify-center rounded-[2px] bg-blush-radial"
-                >
-                  <Sparkle className="h-6 w-6 text-blush-400" />
-                </div>
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {BRAND_GALLERY.map((src) => (
+                  <div key={src} className="group relative aspect-square overflow-hidden rounded-[2px]">
+                    <Image
+                      src={src}
+                      alt="Charmora official product photography"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(min-width: 640px) 24vw, 46vw"
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 text-center text-[11px] uppercase tracking-widest2 text-ink-faint">
+                Official Charmora photography — tag @charmora to be featured here
+              </p>
+            </>
           )}
         </div>
       </div>

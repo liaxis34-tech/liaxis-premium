@@ -5,24 +5,17 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import clsx from "clsx";
-import CharmCuffArt from "../ProductArt";
 import VideoBlock from "../VideoBlock";
-import { CharmKind } from "../icons/CharmIcons";
 
-type Slide =
-  | { type: "art"; charms: CharmKind[] }
-  | { type: "image"; src: string; alt: string }
-  | { type: "video" };
+type Slide = { type: "image"; src: string; alt: string } | { type: "video" };
 
 interface ProductGalleryProps {
-  charms: CharmKind[];
+  images: { src: string; alt: string }[];
 }
 
-export default function ProductGallery({ charms }: ProductGalleryProps) {
+export default function ProductGallery({ images }: ProductGalleryProps) {
   const slides: Slide[] = [
-    { type: "art", charms },
-    { type: "image", src: "/images/atmosphere-bg.jpg", alt: "Charmora styled with soft light and petals" },
-    { type: "art", charms: charms.slice(0, 2) },
+    ...images.map((img) => ({ type: "image" as const, ...img })),
     { type: "video" },
   ];
 
@@ -33,16 +26,11 @@ export default function ProductGallery({ charms }: ProductGalleryProps) {
   return (
     <div>
       <div
-        className="group relative aspect-square w-full cursor-zoom-in overflow-hidden rounded-[2px] bg-blush-50"
+        className="group relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-[2px] bg-blush-50"
         onClick={() => slide.type !== "video" && setZoomed(true)}
       >
-        {slide.type === "art" && (
-          <div className="flex h-full w-full items-center justify-center p-10">
-            <CharmCuffArt charms={slide.charms} />
-          </div>
-        )}
         {slide.type === "image" && (
-          <Image src={slide.src} alt={slide.alt} fill className="object-cover" />
+          <Image src={slide.src} alt={slide.alt} fill priority className="object-cover" />
         )}
         {slide.type === "video" && <VideoBlock className="h-full w-full" label="Behind the Design" />}
 
@@ -53,27 +41,24 @@ export default function ProductGallery({ charms }: ProductGalleryProps) {
         )}
       </div>
 
-      <div className="mt-4 grid grid-cols-4 gap-3">
+      <div className="mt-4 grid grid-cols-5 gap-3">
         {slides.map((s, i) => (
           <button
             key={i}
             onClick={() => setActive(i)}
             className={clsx(
-              "flex aspect-square items-center justify-center overflow-hidden rounded-[2px] border bg-blush-50 transition-colors",
+              "relative aspect-square overflow-hidden rounded-[2px] border bg-blush-50 transition-colors",
               active === i ? "border-blush-600" : "border-transparent hover:border-blush-300"
             )}
           >
-            {s.type === "art" && <CharmCuffArt charms={s.charms} animated={false} className="w-3/4 p-2" />}
-            {s.type === "image" && (
-              <Image src={s.src} alt="" width={120} height={120} className="h-full w-full object-cover" />
-            )}
+            {s.type === "image" && <Image src={s.src} alt="" fill className="object-cover" />}
             {s.type === "video" && <VideoBlock className="h-full w-full" label="" />}
           </button>
         ))}
       </div>
 
       <AnimatePresence>
-        {zoomed && slide.type !== "video" && (
+        {zoomed && slide.type === "image" && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -86,19 +71,16 @@ export default function ProductGallery({ charms }: ProductGalleryProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="relative max-h-[85vh] w-full max-w-2xl overflow-hidden rounded-[2px] bg-white p-10"
+              className="relative max-h-[85vh] w-full max-w-lg overflow-hidden rounded-[2px] bg-white"
               onClick={(e) => e.stopPropagation()}
             >
-              {slide.type === "art" && <CharmCuffArt charms={slide.charms} />}
-              {slide.type === "image" && (
-                <div className="relative aspect-square w-full">
-                  <Image src={slide.src} alt={slide.alt} fill className="object-cover" />
-                </div>
-              )}
+              <div className="relative aspect-[3/4] w-full">
+                <Image src={slide.src} alt={slide.alt} fill className="object-cover" />
+              </div>
               <button
                 aria-label="Close zoom"
                 onClick={() => setZoomed(false)}
-                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-blush-50 text-ink-deep"
+                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-ink-deep"
               >
                 <X size={16} strokeWidth={1.5} />
               </button>

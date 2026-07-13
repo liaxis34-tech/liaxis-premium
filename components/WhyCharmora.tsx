@@ -1,6 +1,8 @@
 import { Feather, Gift, Package, Sparkles, Wand2 } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import SectionLabel from "./ui/SectionLabel";
+import FloatingPetals from "./decor/FloatingPetals";
+import GoldLight from "./decor/GoldLight";
 
 const FEATURES = [
   {
@@ -32,8 +34,10 @@ const FEATURES = [
 
 export default function WhyCharmora() {
   return (
-    <section className="relative bg-blush-radial py-24 md:py-36">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+    <section className="relative overflow-hidden bg-blush-radial py-24 md:py-36">
+      <GoldLight />
+      <FloatingPetals />
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <Reveal className="mx-auto max-w-2xl text-center">
           <SectionLabel>Why Charmora</SectionLabel>
           <h2 className="mt-6 font-display text-4xl font-light text-ink-deep md:text-5xl">

@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { Check, ShoppingBag } from "lucide-react";
 import clsx from "clsx";
 import Reveal from "./ui/Reveal";
 import SectionLabel from "./ui/SectionLabel";
-import CharmCuffArt from "./ProductArt";
 import { CHARM_ICONS } from "./icons/CharmIcons";
 import { CHARM_OPTIONS, SIGNATURE_BASE_PRICE, SIGNATURE_PRODUCT_HANDLE } from "@/lib/mock-data";
 import { useCharmBuilder, useCartStore } from "@/lib/store";
@@ -45,9 +45,27 @@ export default function BuildYourCharm() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <div className="mx-auto max-w-sm">
-              <CharmCuffArt charms={selectedCharms.map((c) => c.kind)} />
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[2px] shadow-luxe">
+              <Image
+                src="/images/product-clean.webp"
+                alt="Charmora signature charm ear cuff"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 24rem, 90vw"
+              />
             </div>
+            {selectedCharms.length > 0 && (
+              <div className="mx-auto mt-4 flex max-w-sm flex-wrap justify-center gap-2">
+                {selectedCharms.map((c) => (
+                  <span
+                    key={c.id}
+                    className="rounded-full border border-blush-200 bg-white px-3 py-1 text-[10px] uppercase tracking-widest2 text-ink-soft"
+                  >
+                    {c.name}
+                  </span>
+                ))}
+              </div>
+            )}
             <div className="mt-6 flex items-center justify-between rounded-[2px] border border-blush-200 bg-white px-6 py-5">
               <div>
                 <p className="text-[11px] uppercase tracking-widest2 text-ink-faint">Your Combination</p>

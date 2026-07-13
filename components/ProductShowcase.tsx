@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Reveal from "./ui/Reveal";
 import SectionLabel from "./ui/SectionLabel";
-import CharmCuffArt from "./ProductArt";
 import VideoBlock from "./VideoBlock";
-import { StarCharm } from "./icons/CharmIcons";
 
 export default function ProductShowcase() {
   return (
@@ -19,8 +17,8 @@ export default function ProductShowcase() {
         <div className="mt-16 grid auto-rows-[220px] gap-4 md:grid-cols-3 md:auto-rows-[260px] md:gap-6">
           <Reveal className="relative overflow-hidden rounded-[2px] md:col-span-2 md:row-span-2">
             <Image
-              src="/images/atmosphere-bg.jpg"
-              alt="Charmora signature charm ear cuff, styled with blush light and floating petals"
+              src="/images/product-glass.webp"
+              alt="Charmora signature charm ear cuff resting on glass panels"
               fill
               className="object-cover transition-transform duration-[1400ms] hover:scale-105"
             />
@@ -31,20 +29,36 @@ export default function ProductShowcase() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="flex items-center justify-center overflow-hidden rounded-[2px] bg-blush-100">
-            <CharmCuffArt charms={["flower", "gem"]} animated={false} className="w-3/4" />
+          <Reveal delay={0.1} className="relative overflow-hidden rounded-[2px]">
+            <Image
+              src="/images/hero-petals.webp"
+              alt="Charmora ear cuff among falling petals"
+              fill
+              className="object-cover transition-transform duration-[1400ms] hover:scale-105"
+            />
           </Reveal>
 
           <Reveal delay={0.18}>
             <VideoBlock className="h-full w-full rounded-[2px]" label="Behind the Design" />
           </Reveal>
 
-          <Reveal delay={0.26} className="flex items-center justify-center overflow-hidden rounded-[2px] bg-blush-radial">
-            <CharmCuffArt charms={["star", "moon"]} animated={false} className="w-3/4" />
+          <Reveal delay={0.26} className="relative overflow-hidden rounded-[2px]">
+            <Image
+              src="/images/lifestyle-worn.webp"
+              alt="Charmora ear cuff worn close up"
+              fill
+              className="object-cover object-top transition-transform duration-[1400ms] hover:scale-105"
+            />
           </Reveal>
 
-          <Reveal delay={0.34} className="relative flex items-center justify-center overflow-hidden rounded-[2px] bg-gold-sheen bg-[length:200%_auto] md:col-span-2">
-            <StarCharm className="h-24 w-24 opacity-90" />
+          <Reveal delay={0.34} className="relative overflow-hidden rounded-[2px] md:col-span-2">
+            <Image
+              src="/images/product-clean.webp"
+              alt="Charmora signature charm ear cuff, hand-set charm detail"
+              fill
+              className="object-cover object-[50%_65%] transition-transform duration-[1400ms] hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-deep/40 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 text-white">
               <span className="text-[11px] uppercase tracking-widest2">Hand-Set Details</span>
             </div>

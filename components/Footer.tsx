@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Instagram, Send } from "lucide-react";
 import Logo from "./Logo";
+import GlassPanels from "./decor/GlassPanels";
 import { SIGNATURE_PRODUCT_HANDLE } from "@/lib/mock-data";
 
 const COLUMNS = [
@@ -46,7 +47,8 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-blush-radial pb-8 pt-20 md:pt-28">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <GlassPanels />
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:gap-8">
           <div>
             <Logo showSubline />

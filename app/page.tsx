@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import StorySection from "@/components/StorySection";
 import BuildYourCharm from "@/components/BuildYourCharm";
 import ProductShowcase from "@/components/ProductShowcase";
+import GalleryMasonry from "@/components/GalleryMasonry";
 import SocialProof from "@/components/SocialProof";
 import UGCWall from "@/components/UGCWall";
 import WhyCharmora from "@/components/WhyCharmora";
@@ -19,6 +20,7 @@ export default function Home() {
         <StorySection />
         <BuildYourCharm />
         <ProductShowcase />
+        <GalleryMasonry />
         <SocialProof />
         <UGCWall />
         <WhyCharmora />

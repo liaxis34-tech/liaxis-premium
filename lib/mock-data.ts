@@ -52,6 +52,15 @@ export const CHARM_OPTIONS: CharmOption[] = [
 export const SIGNATURE_PRODUCT_HANDLE = "signature-charm-ear-cuff";
 export const SIGNATURE_BASE_PRICE = 58;
 
+// Real product photography for the signature ear cuff.
+export const SIGNATURE_PRODUCT_IMAGES = [
+  { src: "/images/hero-petals.webp", alt: "Charmora signature charm ear cuff floating amid falling petals" },
+  { src: "/images/product-clean.webp", alt: "Charmora signature charm ear cuff" },
+  { src: "/images/product-glass.webp", alt: "Charmora signature charm ear cuff resting on glass panels" },
+  { src: "/images/lifestyle-worn.webp", alt: "Charmora signature charm ear cuff worn close up" },
+  { src: "/images/community-hold.webp", alt: "Charmora signature charm ear cuff held up to the camera" },
+];
+
 export const MOCK_PRODUCTS: Product[] = [
   {
     id: "gid://shopify/Product/1",
