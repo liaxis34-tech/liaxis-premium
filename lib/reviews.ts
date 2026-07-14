@@ -190,3 +190,13 @@ export async function getReviewSummary(productHandle: string): Promise<ReviewSum
   if (!provider) return emptySummary(productHandle);
   return provider.fetchSummary(productHandle);
 }
+
+/** Whether a review provider (Loox or Judge.me) has credentials configured. */
+export function isReviewsConfigured(): boolean {
+  return Boolean(activeProvider());
+}
+
+/** Which provider is currently active, if any — used to label the review section correctly. */
+export function activeProviderName(): ReviewSource | undefined {
+  return activeProvider()?.name;
+}

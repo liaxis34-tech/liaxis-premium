@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductGallery from "@/components/product/ProductGallery";
 import ProductInfo from "@/components/product/ProductInfo";
-import ReviewSection from "@/components/product/ReviewSection";
+import ReviewsSection from "@/components/reviews/ReviewsSection";
 import RelatedProducts from "@/components/product/RelatedProducts";
 import RecentlyViewed from "@/components/product/RecentlyViewed";
 import StickyAddToCart from "@/components/product/StickyAddToCart";
@@ -57,7 +57,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </section>
 
-        <ReviewSection productHandle={handle} />
+        <section id="reviews" className="border-t border-blush-100 py-20 md:py-28">
+          <div className="mx-auto max-w-5xl px-6 md:px-10">
+            <ReviewsSection productHandle={handle} />
+          </div>
+        </section>
         <RelatedProducts handle={handle} />
         <RecentlyViewed currentHandle={handle} />
       </main>
