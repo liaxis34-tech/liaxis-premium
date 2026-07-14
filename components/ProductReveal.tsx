@@ -70,6 +70,7 @@ export default function ProductReveal() {
                 src="/images/product-studio.webp"
                 alt="The Charmora Signature Ear Cuff in 14k gold vermeil with Blue Gem and Star charms, studio shot"
                 fill
+                draggable={false}
                 sizes="(max-width: 640px) 90vw, 480px"
                 className="object-contain drop-shadow-[0_30px_60px_rgba(35,28,24,0.18)]"
                 priority
@@ -80,6 +81,7 @@ export default function ProductReveal() {
                 src="/images/product-petals.webp"
                 alt="The Charmora Signature Ear Cuff floating among petals"
                 fill
+                draggable={false}
                 sizes="(max-width: 640px) 90vw, 480px"
                 className="object-contain drop-shadow-[0_30px_60px_rgba(35,28,24,0.18)]"
               />

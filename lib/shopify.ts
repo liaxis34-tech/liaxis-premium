@@ -1,11 +1,13 @@
 // Charmora sells exactly one product: the Signature Ear Cuff. There are no
 // color/size variants — the only customization is which charms are attached.
 //
-// STORE_CONFIGURED is false until a real Shopify domain + variant ID are set.
-// Flip it to true and fill in SHOPIFY_DOMAIN / VARIANT_ID once the store is live;
-// every Buy/Reserve button in the UI already reads from here.
+// STORE_CONFIGURED stays false until the product's variant ID is set below.
+// The Shopify domain is live, but every Buy/Reserve button intentionally
+// keeps opening the waitlist modal until VARIANT_ID is filled in — flip
+// STORE_CONFIGURED to true at the same time to switch buttons over to real
+// Shopify cart permalinks.
 export const STORE_CONFIGURED = false;
-export const SHOPIFY_DOMAIN = "";
+export const SHOPIFY_DOMAIN = "charmora-7675.myshopify.com";
 export const VARIANT_ID = "";
 
 export const PRODUCT_NAME = "Charmora Signature Ear Cuff";
