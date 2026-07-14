@@ -57,13 +57,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </section>
 
-        <section id="reviews" className="border-t border-blush-100 py-20 md:py-28">
+        <RelatedProducts handle={handle} />
+        <RecentlyViewed currentHandle={handle} />
+
+        <section id="reviews" className="border-t border-blush-100 bg-blush-50 py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6 md:px-10">
             <ReviewsSection productHandle={handle} />
           </div>
         </section>
-        <RelatedProducts handle={handle} />
-        <RecentlyViewed currentHandle={handle} />
       </main>
       <Footer />
       <StickyAddToCart productHandle={product.handle} title={product.title} basePrice={basePrice} />

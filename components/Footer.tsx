@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Instagram, Send } from "lucide-react";
+import { ArrowRight, Instagram } from "lucide-react";
 import Logo from "./Logo";
-import GlassPanels from "./decor/GlassPanels";
 import { SIGNATURE_PRODUCT_HANDLE } from "@/lib/mock-data";
 
 const COLUMNS = [
@@ -46,10 +45,43 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-blush-radial pb-8 pt-20 md:pt-28">
-      <GlassPanels />
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
-        <div className="grid gap-14 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:gap-8">
+    <footer className="bg-blush-radial pt-16 md:pt-20">
+      {/* Newsletter band */}
+      <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
+        <span className="text-[11px] uppercase tracking-widest3 text-gold-dark">Join the Circle</span>
+        <h2 className="mt-4 font-display text-3xl font-light text-ink-deep sm:text-4xl">
+          New charms, styling edits and early access — first.
+        </h2>
+
+        {submitted ? (
+          <p className="mt-8 text-sm text-blush-700">You&apos;re on the list. Welcome to Charmora.</p>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            className="mx-auto mt-8 flex w-full max-w-md items-center gap-3 border-b border-ink-deep/25 pb-3"
+          >
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address"
+              className="w-full bg-transparent text-center text-sm text-ink-deep placeholder:text-ink-faint focus:outline-none sm:text-left"
+            />
+            <button
+              type="submit"
+              aria-label="Subscribe"
+              className="flex shrink-0 items-center gap-1.5 text-[11px] uppercase tracking-widest2 text-blush-700 transition-colors hover:text-gold-dark"
+            >
+              Subscribe
+              <ArrowRight size={13} strokeWidth={1.5} />
+            </button>
+          </form>
+        )}
+      </div>
+
+      <div className="mx-auto mt-16 max-w-7xl border-t border-ink-deep/10 px-6 pt-14 md:mt-20 md:px-10 md:pt-16">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:gap-8">
           <div>
             <Logo showSubline />
             <p className="mt-5 max-w-xs text-sm font-light leading-relaxed text-ink-soft">
@@ -61,7 +93,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Charmora on Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-blush-300 text-blush-700 transition-colors hover:bg-blush-100"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-blush-300 text-blush-700 transition-colors hover:border-gold hover:bg-white hover:text-gold-dark"
               >
                 <Instagram size={15} strokeWidth={1.4} />
               </a>
@@ -70,7 +102,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Charmora on TikTok"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-blush-300 text-[11px] font-medium text-blush-700 transition-colors hover:bg-blush-100"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-blush-300 text-[11px] font-medium text-blush-700 transition-colors hover:border-gold hover:bg-white hover:text-gold-dark"
               >
                 TT
               </a>
@@ -94,33 +126,9 @@ export default function Footer() {
               </ul>
             </div>
           ))}
-
-          <div>
-            <h3 className="text-[11px] uppercase tracking-widest2 text-ink-deep">Stay in Touch</h3>
-            <p className="mt-5 text-sm font-light text-ink-soft">
-              New arrivals, charm stories and early access — straight to your inbox.
-            </p>
-            {submitted ? (
-              <p className="mt-4 text-sm text-blush-700">You&apos;re on the list. Welcome to Charmora.</p>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-4 flex items-center border-b border-ink-deep/25 pb-2">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
-                  className="w-full bg-transparent text-sm text-ink-deep placeholder:text-ink-faint focus:outline-none"
-                />
-                <button type="submit" aria-label="Subscribe" className="text-blush-700">
-                  <Send size={16} strokeWidth={1.4} />
-                </button>
-              </form>
-            )}
-          </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-ink-deep/10 pt-8 text-[11px] text-ink-faint md:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-ink-deep/10 py-8 text-[11px] text-ink-faint md:flex-row">
           <p>&copy; {new Date().getFullYear()} Charmora. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="#" className="hover:text-ink-soft">

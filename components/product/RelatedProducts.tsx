@@ -8,15 +8,18 @@ export default async function RelatedProducts({ handle }: { handle: string }) {
   if (products.length === 0) return null;
 
   return (
-    <section className="border-t border-blush-100 py-20 md:py-28">
+    <section className="border-t border-blush-100 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <Reveal>
+        <Reveal className="text-center sm:text-left">
           <SectionLabel>You May Also Love</SectionLabel>
+          <h2 className="mt-5 font-display text-3xl font-light text-ink-deep md:text-4xl">
+            Complete your story
+          </h2>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-3 lg:gap-x-10">
           {products.map((product, i) => (
-            <Reveal key={product.id} delay={i * 0.08}>
-              <ProductCard product={product} />
+            <Reveal key={product.id} delay={i * 0.1}>
+              <ProductCard product={product} index={i + 1} />
             </Reveal>
           ))}
         </div>

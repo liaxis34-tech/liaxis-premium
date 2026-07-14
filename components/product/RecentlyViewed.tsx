@@ -25,12 +25,12 @@ export default function RecentlyViewed({ currentHandle }: { currentHandle: strin
   if (products.length === 0) return null;
 
   return (
-    <section className="border-t border-blush-100 py-20 md:py-28">
+    <section className="border-t border-blush-100 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel>Recently Viewed</SectionLabel>
-        <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+          {products.map((product, i) => (
+            <ProductCard key={product.id} product={product} index={i + 3} />
           ))}
         </div>
       </div>

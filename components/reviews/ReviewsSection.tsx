@@ -2,6 +2,7 @@ import Reveal from "../ui/Reveal";
 import SectionLabel from "../ui/SectionLabel";
 import RatingSummary from "./RatingSummary";
 import ReviewCard from "./ReviewCard";
+import ReviewPhotoGallery from "./ReviewPhotoGallery";
 import ReviewsEmptyState from "./ReviewsEmptyState";
 import { getProductReviews, getReviewSummary, isReviewsConfigured } from "@/lib/reviews";
 
@@ -53,13 +54,18 @@ export default async function ReviewsSection({
       )}
 
       {reviews.length > 0 ? (
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review, i) => (
-            <Reveal key={review.id} delay={i * 0.06}>
-              <ReviewCard review={review} />
-            </Reveal>
-          ))}
-        </div>
+        <>
+          <Reveal delay={0.15} className="mt-12">
+            <ReviewPhotoGallery reviews={reviews} />
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((review, i) => (
+              <Reveal key={review.id} delay={i * 0.06}>
+                <ReviewCard review={review} />
+              </Reveal>
+            ))}
+          </div>
+        </>
       ) : (
         <Reveal delay={0.1} className="mt-12">
           <ReviewsEmptyState configured={configured} />
