@@ -1,21 +1,25 @@
 import { create } from "zustand";
-import { ColorName, SizeName, findVariant, VARIANTS } from "./shopify";
+import { CharmId, MAX_CHARMS } from "./shopify";
 
-interface SelectionState {
-  color: ColorName;
-  size: SizeName;
-  setColor: (color: ColorName) => void;
-  setSize: (size: SizeName) => void;
-  selectedVariantId: () => string;
+interface CharmoraState {
+  charms: CharmId[];
+  toggleCharm: (id: CharmId) => void;
+  isReserveOpen: boolean;
+  openReserve: () => void;
+  closeReserve: () => void;
 }
 
-export const useSelectionStore = create<SelectionState>((set, get) => ({
-  color: "Bej",
-  size: "M",
-  setColor: (color) => set({ color }),
-  setSize: (size) => set({ size }),
-  selectedVariantId: () => {
-    const { color, size } = get();
-    return findVariant(color, size)?.id ?? VARIANTS[0].id;
+export const useCharmoraStore = create<CharmoraState>((set, get) => ({
+  charms: ["flower", "star", "gem"],
+  toggleCharm: (id) => {
+    const { charms } = get();
+    if (charms.includes(id)) {
+      set({ charms: charms.filter((c) => c !== id) });
+    } else if (charms.length < MAX_CHARMS) {
+      set({ charms: [...charms, id] });
+    }
   },
+  isReserveOpen: false,
+  openReserve: () => set({ isReserveOpen: true }),
+  closeReserve: () => set({ isReserveOpen: false }),
 }));

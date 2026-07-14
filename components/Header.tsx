@@ -2,24 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import clsx from "clsx";
-import { useSelectionStore } from "@/lib/store";
-import { goToBuyNow } from "@/lib/shopify";
+import { useCharmoraStore } from "@/lib/store";
 import { Logo, Monogram } from "./Logo";
 
 const LINKS = [
-  { label: "3D Deneyim", href: "#experience" },
-  { label: "Avantajlar", href: "#benefits" },
-  { label: "Kumaş", href: "#fabric" },
-  { label: "Yorumlar", href: "#reviews" },
-  { label: "S.S.S.", href: "#faq" },
+  { label: "The Cuff", href: "#reveal" },
+  { label: "Charms", href: "#charms" },
+  { label: "Meaning", href: "#meaning" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const selectedVariantId = useSelectionStore((s) => s.selectedVariantId);
+  const openReserve = useCharmoraStore((s) => s.openReserve);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,24 +32,24 @@ export default function Header() {
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-ivory/90 backdrop-blur-md border-b border-ink/10 py-3"
+          ? "border-b border-ink/10 bg-cream/90 py-3 backdrop-blur-md"
           : "bg-transparent py-6"
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="LIAXIS anasayfa">
+        <a href="#top" className="flex items-center gap-2.5" aria-label="Charmora home">
           <Monogram tone={scrolled ? "dark" : "light"} className="h-7 w-7" />
-          <Logo tone={scrolled ? "ink" : "ivory"} className="text-2xl transition-colors" />
+          <Logo tone={scrolled ? "ink" : "cream"} className="text-2xl transition-colors" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-9">
+        <nav className="hidden items-center gap-9 md:flex">
           {LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={clsx(
-                "text-[11px] uppercase tracking-widest2 font-medium transition-colors hover:text-gold",
-                scrolled ? "text-ink/80" : "text-ivory/90"
+                "text-[11px] font-medium uppercase tracking-widest2 transition-colors hover:text-gold",
+                scrolled ? "text-ink/80" : "text-cream/90"
               )}
             >
               {link.label}
@@ -60,21 +59,20 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <button
-            onClick={() => goToBuyNow(selectedVariantId())}
+            onClick={openReserve}
             className={clsx(
-              "hidden md:inline-flex items-center gap-2 border px-5 py-2.5 text-[11px] uppercase tracking-widest2 font-medium transition-colors",
+              "hidden items-center gap-2 border px-5 py-2.5 text-[11px] font-medium uppercase tracking-widest2 transition-colors md:inline-flex",
               scrolled
-                ? "border-ink text-ink hover:bg-ink hover:text-ivory"
-                : "border-ivory text-ivory hover:bg-ivory hover:text-ink"
+                ? "border-ink text-ink hover:bg-ink hover:text-cream"
+                : "border-cream text-cream hover:bg-cream hover:text-ink"
             )}
           >
-            <ShoppingBag size={14} strokeWidth={1.5} />
-            Satın Al
+            Reserve Yours
           </button>
 
           <button
-            aria-label="Menü"
-            className={clsx("md:hidden", scrolled ? "text-ink" : "text-ivory")}
+            aria-label="Menu"
+            className={clsx("md:hidden", scrolled ? "text-ink" : "text-cream")}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
@@ -89,10 +87,10 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-ivory border-t border-ink/10"
+            className="overflow-hidden border-t border-ink/10 bg-cream md:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
-              <div className="flex items-center gap-2.5 pb-4 border-b border-ink/5">
+              <div className="flex items-center gap-2.5 border-b border-ink/5 pb-4">
                 <Monogram tone="dark" className="h-6 w-6" />
                 <Logo tone="ink" className="text-lg" />
               </div>
@@ -101,7 +99,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="py-3 text-sm uppercase tracking-widest2 text-ink/80 border-b border-ink/5"
+                  className="border-b border-ink/5 py-3 text-sm uppercase tracking-widest2 text-ink/80"
                 >
                   {link.label}
                 </a>
@@ -109,11 +107,11 @@ export default function Header() {
               <button
                 onClick={() => {
                   setOpen(false);
-                  goToBuyNow(selectedVariantId());
+                  openReserve();
                 }}
-                className="mt-4 bg-ink text-ivory py-3 text-xs uppercase tracking-widest2"
+                className="mt-4 bg-ink py-3 text-xs uppercase tracking-widest2 text-cream"
               >
-                Hemen Satın Al
+                Reserve Yours
               </button>
             </div>
           </motion.div>

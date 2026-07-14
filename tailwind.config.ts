@@ -9,19 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ivory: {
-          DEFAULT: "#FAF7F1",
-          soft: "#F4EFE6",
-          deep: "#EDE5D6",
+        cream: {
+          DEFAULT: "#FBF6ED",
+          soft: "#F5ECDC",
+          deep: "#EBDCC0",
         },
-        beige: {
-          50: "#FAF6EF",
-          100: "#F2E9DA",
-          200: "#E6D6BC",
-          300: "#D8C39F",
-          400: "#C9AD81",
-          500: "#B99966",
-          600: "#9E7F51",
+        blush: {
+          50: "#FCF0EC",
+          100: "#F6DCD3",
+          200: "#EFC4B6",
+          300: "#E4A897",
+          400: "#D68E7B",
+          500: "#C17862",
+          600: "#9E5E4C",
         },
         champagne: {
           DEFAULT: "#D9BE8F",
@@ -34,9 +34,9 @@ const config: Config = {
           dark: "#8A6A3E",
         },
         ink: {
-          DEFAULT: "#1A1712",
-          soft: "#2A2620",
-          faint: "#4A443B",
+          DEFAULT: "#231C18",
+          soft: "#332922",
+          faint: "#5C4F45",
         },
       },
       fontFamily: {
@@ -49,11 +49,17 @@ const config: Config = {
       backgroundImage: {
         "gold-sheen":
           "linear-gradient(120deg, #B99966 0%, #E7D4AC 35%, #F4EFE6 50%, #E7D4AC 65%, #B99966 100%)",
+        "blush-sheen":
+          "linear-gradient(120deg, #C17862 0%, #EFC4B6 35%, #FBF6ED 50%, #EFC4B6 65%, #C17862 100%)",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-14px)" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-18px) rotate(6deg)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "0% 50%" },
@@ -66,6 +72,7 @@ const config: Config = {
       },
       animation: {
         float: "float 6s ease-in-out infinite",
+        drift: "drift 8s ease-in-out infinite",
         shimmer: "shimmer 3s linear infinite",
         marquee: "marquee 30s linear infinite",
       },

@@ -8,28 +8,28 @@ import Reveal from "./ui/Reveal";
 
 const FAQS = [
   {
-    q: "LIAXIS Postür Toparlayıcı Sütyen nasıl çalışır?",
-    a: "Sırt bölgesindeki esnek destek ağı omuzları nazikçe geriye çekerek omurga hizasını destekler. Düzenli kullanımda kaslarınız doğru duruşu hatırlamaya başlar.",
+    q: "Do I need a piercing to wear it?",
+    a: "No. The Signature Ear Cuff wraps gently around the outer ear and stays secure with no piercing required. It takes seconds to put on and just as long to remove.",
   },
   {
-    q: "Hangi bedeni seçmeliyim?",
-    a: "Ürün S, M, L ve XL bedenlerinde sunulur. Mevcut sütyen bedeninizle aynı bedeni seçmenizi öneririz. Emin değilseniz iki beden arasında kalırsanız daha küçük olanı tercih edin.",
+    q: "What is it made of?",
+    a: "14k gold vermeil — a thick layer of genuine gold bonded over solid sterling silver. It's tarnish-resistant, hypoallergenic, and made to be worn every day.",
   },
   {
-    q: "Ürünü günde kaç saat kullanabilirim?",
-    a: "Nefes alabilir kumaşı sayesinde güvenle 8-12 saat boyunca kullanılabilir. İlk günlerde 2-3 saatlik kullanımla başlayıp süreyi kademeli olarak artırmanızı öneririz.",
+    q: "Will it fit my ear?",
+    a: "Yes. The cuff is designed as one adjustable size that gently molds to fit most ear shapes comfortably, from a snug helix fit to a looser lobe drape.",
   },
   {
-    q: "Kargo süresi ne kadar?",
-    a: "Siparişleriniz 1-3 iş günü içinde kargoya teslim edilir ve Türkiye genelinde ortalama 2-4 iş günü içinde adresinize ulaşır.",
+    q: "Can I change the charms myself?",
+    a: "Absolutely. Each charm attaches to its own small hoop along the cuff, so you can swap between Flower, Star, Blue Gem, and Moon whenever your story changes.",
   },
   {
-    q: "İade ve değişim yapabilir miyim?",
-    a: "Ürünü teslim aldıktan sonra 14 gün içinde, kullanılmamış ve orijinal ambalajında olması koşuluyla iade veya değişim talebinde bulunabilirsiniz.",
+    q: "How do I care for my cuff?",
+    a: "Keep it dry, store it away from direct sunlight in the pouch provided, and wipe gently with a soft cloth. Avoid perfume, chlorine, and saltwater contact where possible.",
   },
   {
-    q: "Kumaşı hassas ciltler için uygun mu?",
-    a: "Evet, dermatolojik olarak test edilmiş mikro-modal kumaşımız hassas ciltlerde bile tahriş yaratmayacak şekilde geliştirilmiştir.",
+    q: "What's your shipping and return policy?",
+    a: "Every order ships in signature Charmora packaging, ready to gift. We offer a 30-day return window on unworn pieces in their original condition.",
   },
 ];
 
@@ -37,12 +37,12 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative bg-beige-100 py-24 md:py-36">
+    <section id="faq" className="relative bg-cream-soft py-24 md:py-36">
       <div className="mx-auto max-w-3xl px-6 md:px-10">
         <div className="text-center">
-          <SectionLabel>Sıkça Sorulan Sorular</SectionLabel>
+          <SectionLabel>Frequently Asked</SectionLabel>
           <h2 className="mt-6 font-display text-4xl font-light text-ink md:text-5xl">
-            Merak <span className="italic text-gold-dark">ettikleriniz</span>
+            Questions, <span className="italic text-gold-dark">answered</span>
           </h2>
         </div>
 

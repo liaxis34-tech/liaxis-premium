@@ -1,54 +1,94 @@
-export const SHOPIFY_DOMAIN = "y70y80-51.myshopify.com";
+// Charmora sells exactly one product: the Signature Ear Cuff. There are no
+// color/size variants — the only customization is which charms are attached.
+//
+// STORE_CONFIGURED is false until a real Shopify domain + variant ID are set.
+// Flip it to true and fill in SHOPIFY_DOMAIN / VARIANT_ID once the store is live;
+// every Buy/Reserve button in the UI already reads from here.
+export const STORE_CONFIGURED = false;
+export const SHOPIFY_DOMAIN = "";
+export const VARIANT_ID = "";
 
-export type ColorName = "Bej" | "Siyah";
-export type SizeName = "S" | "M" | "L" | "XL";
+export const PRODUCT_NAME = "Charmora Signature Ear Cuff";
+export const PRODUCT_PRICE = 148;
+export const PRODUCT_CURRENCY = "USD";
 
-export interface ProductVariant {
-  id: string;
-  color: ColorName;
-  size: SizeName;
-  swatch: string;
-  available: boolean;
+export type CharmId = "flower" | "star" | "gem" | "moon";
+
+export interface Charm {
+  id: CharmId;
+  name: string;
+  meaning: string;
+  description: string;
+  color: string;
 }
 
-export const VARIANTS: ProductVariant[] = [
-  { id: "46825554509878", color: "Bej", size: "S", swatch: "#D8C39F", available: true },
-  { id: "46832010526774", color: "Bej", size: "M", swatch: "#D8C39F", available: true },
-  { id: "46832010559542", color: "Bej", size: "L", swatch: "#D8C39F", available: true },
-  { id: "46832010592310", color: "Bej", size: "XL", swatch: "#D8C39F", available: true },
-  { id: "46825554542646", color: "Siyah", size: "S", swatch: "#1A1712", available: true },
-  { id: "46832010625078", color: "Siyah", size: "M", swatch: "#1A1712", available: true },
-  { id: "46832010657846", color: "Siyah", size: "L", swatch: "#1A1712", available: true },
-  { id: "46832010690614", color: "Siyah", size: "XL", swatch: "#1A1712", available: true },
+export const CHARMS: Charm[] = [
+  {
+    id: "flower",
+    name: "Flower",
+    meaning: "Love",
+    description: "For the love you carry — given, received, or still growing.",
+    color: "#C17862",
+  },
+  {
+    id: "star",
+    name: "Star",
+    meaning: "Dreams",
+    description: "For the dreams you're chasing and the ones still ahead.",
+    color: "#B08D57",
+  },
+  {
+    id: "gem",
+    name: "Blue Gem",
+    meaning: "Memories",
+    description: "For the moments you never want to forget.",
+    color: "#6E8FB8",
+  },
+  {
+    id: "moon",
+    name: "Moon",
+    meaning: "New Beginnings",
+    description: "For every chapter you're brave enough to start.",
+    color: "#8A6A3E",
+  },
 ];
 
-export const COLORS: ColorName[] = ["Bej", "Siyah"];
-export const SIZES: SizeName[] = ["S", "M", "L", "XL"];
+export const MAX_CHARMS = 3;
 
-export function findVariant(color: ColorName, size: SizeName): ProductVariant | undefined {
-  return VARIANTS.find((v) => v.color === color && v.size === size);
+export function getCharm(id: CharmId): Charm {
+  return CHARMS.find((c) => c.id === id) ?? CHARMS[0];
 }
 
-export function getVariantById(id: string): ProductVariant | undefined {
-  return VARIANTS.find((v) => v.id === id);
+export function formatPrice(amount: number = PRODUCT_PRICE): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: PRODUCT_CURRENCY,
+    maximumFractionDigits: 0,
+  }).format(amount);
 }
 
-export function getBuyNowUrl(variantId: string): string {
-  return `https://${SHOPIFY_DOMAIN}/cart/${variantId}:1`;
+function buildCharmNote(charmIds: CharmId[]): string {
+  return charmIds.map((id) => getCharm(id).name).join(", ") || "No charms selected";
 }
 
-export function getAddToCartUrl(variantId: string): string {
-  return `https://${SHOPIFY_DOMAIN}/cart/add?id=${variantId}&quantity=1`;
+export function getBuyNowUrl(charmIds: CharmId[]): string {
+  const note = encodeURIComponent(buildCharmNote(charmIds));
+  return `https://${SHOPIFY_DOMAIN}/cart/${VARIANT_ID}:1?properties[Charms]=${note}`;
 }
 
-export function goToBuyNow(variantId: string) {
+export function getAddToCartUrl(charmIds: CharmId[]): string {
+  const note = encodeURIComponent(buildCharmNote(charmIds));
+  return `https://${SHOPIFY_DOMAIN}/cart/add?id=${VARIANT_ID}&quantity=1&properties[Charms]=${note}`;
+}
+
+export function goToBuyNow(charmIds: CharmId[]) {
   if (typeof window !== "undefined") {
-    window.location.href = getBuyNowUrl(variantId);
+    window.location.href = getBuyNowUrl(charmIds);
   }
 }
 
-export function goToAddToCart(variantId: string) {
+export function goToAddToCart(charmIds: CharmId[]) {
   if (typeof window !== "undefined") {
-    window.location.href = getAddToCartUrl(variantId);
+    window.location.href = getAddToCartUrl(charmIds);
   }
 }

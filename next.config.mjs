@@ -5,10 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "cdn.shopify.com" },
-      { protocol: "https", hostname: "y70y80-51.myshopify.com" },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "cdn.shopify.com" }],
   },
 };
 
