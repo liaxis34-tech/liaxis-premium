@@ -7,11 +7,11 @@ import SectionLabel from "./ui/SectionLabel";
 
 const TILES = [
   { type: "image" as const, src: "/images/product-petals.webp", position: "center", span: "row-span-2" },
-  { type: "image" as const, src: "/images/lifestyle-profile.webp", position: "top", span: "" },
+  { type: "image" as const, src: "/images/ear-cuff-profile-clean.webp", position: "center", span: "" },
   { type: "cta" as const, span: "" },
-  { type: "image" as const, src: "/images/lifestyle-closeup.webp", position: "center", span: "" },
+  { type: "image" as const, src: "/images/lifestyle-mirror-kitchen.webp", position: "top", span: "" },
   { type: "image" as const, src: "/images/product-studio.webp", position: "center", span: "row-span-2" },
-  { type: "image" as const, src: "/images/lifestyle-profile.webp", position: "60% 20%", span: "" },
+  { type: "image" as const, src: "/images/lifestyle-closeup.webp", position: "center", span: "" },
   { type: "cta" as const, span: "" },
 ];
 

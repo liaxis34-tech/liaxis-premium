@@ -18,8 +18,8 @@ export default function Lifestyle() {
         <div className="mt-16 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <Reveal className="relative aspect-[4/5] overflow-hidden md:order-2">
             <Image
-              src="/images/lifestyle-closeup.webp"
-              alt="A woman holding the Charmora Signature Ear Cuff up to her face, wearing an oversized beige blazer"
+              src="/images/ear-cuff-warm-portrait.webp"
+              alt="Close-up portrait wearing the Charmora Signature Ear Cuff against a warm, softly lit backdrop"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -41,11 +41,11 @@ export default function Lifestyle() {
         <div className="mt-20 grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <Reveal className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="/images/lifestyle-profile.webp"
-              alt="Profile portrait wearing the Charmora Signature Ear Cuff layered with Blue Gem and Star charms"
+              src="/images/ear-cuff-editorial-red.webp"
+              alt="Close-up editorial portrait wearing the Charmora Signature Ear Cuff with Star and Blue Gem charms"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-top"
+              className="object-cover"
             />
           </Reveal>
           <Reveal delay={0.15}>
