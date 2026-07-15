@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { ChevronUp, Flower2, Star, Gem, Moon } from "lucide-react";
 import { useCharmoraStore } from "@/lib/store";
-import { CHARMS, CharmId, MAX_CHARMS, formatPrice } from "@/lib/shopify";
+import { CHARMS, CharmId, MAX_CHARMS, formatPrice, goToBuyNow } from "@/lib/shopify";
 
 const ICONS: Record<CharmId, typeof Flower2> = {
   flower: Flower2,
@@ -17,7 +17,7 @@ const ICONS: Record<CharmId, typeof Flower2> = {
 export default function StickyBuyBar() {
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const { charms, toggleCharm, openReserve } = useCharmoraStore();
+  const { charms, toggleCharm } = useCharmoraStore();
 
   useEffect(() => {
     const onScroll = () => {
@@ -90,10 +90,10 @@ export default function StickyBuyBar() {
 
             <div className="ml-auto flex flex-1 gap-2">
               <button
-                onClick={openReserve}
+                onClick={() => goToBuyNow(charms)}
                 className="flex-1 bg-ink px-4 py-3.5 text-[11px] uppercase tracking-widest2 text-cream"
               >
-                Reserve Yours
+                Buy Now
               </button>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import GrainOverlay from "./GrainOverlay";
 import { useCharmoraStore } from "@/lib/store";
+import { goToBuyNow } from "@/lib/shopify";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
@@ -17,7 +18,7 @@ export default function Hero() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollCueRef = useRef<HTMLDivElement>(null);
 
-  const openReserve = useCharmoraStore((s) => s.openReserve);
+  const charms = useCharmoraStore((s) => s.charms);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -122,10 +123,10 @@ export default function Hero() {
 
         <div ref={ctaRef} className="mt-11 flex flex-col items-center gap-4 sm:flex-row">
           <button
-            onClick={openReserve}
+            onClick={() => goToBuyNow(charms)}
             className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-500 hover:bg-transparent hover:text-cream"
           >
-            Reserve Yours
+            Buy Now
           </button>
           <button
             onClick={handleExplore}

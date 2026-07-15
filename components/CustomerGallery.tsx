@@ -26,7 +26,7 @@ export default function CustomerGallery() {
           </h2>
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60">
             A closer look at the Signature Ear Cuff, straight from our feed.
-            Tag @wearcharmora to be featured here once we launch.
+            Tag @wearcharmora to be featured here.
           </p>
         </Reveal>
 

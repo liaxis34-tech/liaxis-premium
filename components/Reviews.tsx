@@ -4,10 +4,9 @@ import { Star } from "lucide-react";
 import SectionLabel from "./ui/SectionLabel";
 import Reveal from "./ui/Reveal";
 
-// Loox integration point: once the Shopify product is live, Loox's widget
-// script mounts its review summary + list into #loox-reviews-default below
-// (see https://loox.io for the embed snippet). Until then this renders the
-// pre-launch empty state.
+// Loox integration point: Loox's widget script mounts its review summary +
+// list into #loox-reviews-default below (see https://loox.io for the embed
+// snippet). Until the first reviews come in, this renders the empty state.
 export default function Reviews() {
   return (
     <section id="reviews" className="relative bg-blush-50 py-24 md:py-36">
@@ -33,8 +32,8 @@ export default function Reviews() {
               Be the first to share your story
             </p>
             <p className="max-w-sm text-sm font-light leading-relaxed text-ink/55">
-              Charmora is preparing for launch — verified reviews will appear
-              here automatically once the Signature Ear Cuff ships.
+              Verified reviews will appear here automatically as customers
+              share their experience with the Signature Ear Cuff.
             </p>
           </div>
         </Reveal>

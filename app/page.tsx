@@ -8,7 +8,6 @@ import CustomerGallery from "@/components/CustomerGallery";
 import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
 import StickyBuyBar from "@/components/StickyBuyBar";
-import ReserveModal from "@/components/ReserveModal";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -27,7 +26,6 @@ export default function Home() {
       </main>
       <Footer />
       <StickyBuyBar />
-      <ReserveModal />
     </>
   );
 }

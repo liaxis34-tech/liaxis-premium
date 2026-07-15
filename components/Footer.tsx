@@ -40,10 +40,10 @@ export default function Footer() {
         <Reveal className="flex flex-col items-start justify-between gap-10 border-b border-cream/10 pb-16 md:flex-row md:items-center">
           <div>
             <h3 className="font-display text-3xl font-light md:text-4xl">
-              One step <span className="italic blush-text">closer</span>
+              Stay <span className="italic blush-text">close</span>
             </h3>
             <p className="mt-3 max-w-sm text-sm font-light text-cream/60">
-              Be the first to know when Charmora is ready to ship.
+              New charms and stories, delivered occasionally.
             </p>
           </div>
           <form

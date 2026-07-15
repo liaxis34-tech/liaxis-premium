@@ -1,14 +1,8 @@
 // Charmora sells exactly one product: the Signature Ear Cuff. There are no
 // color/size variants — the only customization is which charms are attached.
-//
-// STORE_CONFIGURED stays false until the product's variant ID is set below.
-// The Shopify domain is live, but every Buy/Reserve button intentionally
-// keeps opening the waitlist modal until VARIANT_ID is filled in — flip
-// STORE_CONFIGURED to true at the same time to switch buttons over to real
-// Shopify cart permalinks.
-export const STORE_CONFIGURED = false;
+export const STORE_CONFIGURED = true;
 export const SHOPIFY_DOMAIN = "charmora-7675.myshopify.com";
-export const VARIANT_ID = "";
+export const VARIANT_ID = "45238204268679";
 
 export const PRODUCT_NAME = "Charmora Signature Ear Cuff";
 export const PRODUCT_PRICE = 148;
@@ -73,24 +67,31 @@ function buildCharmNote(charmIds: CharmId[]): string {
   return charmIds.map((id) => getCharm(id).name).join(", ") || "No charms selected";
 }
 
-export function getBuyNowUrl(charmIds: CharmId[]): string {
+// Adds the Signature Ear Cuff variant to the Shopify cart and sends the
+// customer straight to checkout (return_to=/checkout), with the chosen
+// charms attached as a line item property. Every purchase action on the
+// site — Buy Now or Add to Bag — uses this same permalink.
+function getCheckoutUrl(charmIds: CharmId[]): string {
   const note = encodeURIComponent(buildCharmNote(charmIds));
-  return `https://${SHOPIFY_DOMAIN}/cart/${VARIANT_ID}:1?properties[Charms]=${note}`;
+  return `https://${SHOPIFY_DOMAIN}/cart/${VARIANT_ID}:1?return_to=/checkout&properties[Charms]=${note}`;
+}
+
+export function getBuyNowUrl(charmIds: CharmId[]): string {
+  return getCheckoutUrl(charmIds);
 }
 
 export function getAddToCartUrl(charmIds: CharmId[]): string {
-  const note = encodeURIComponent(buildCharmNote(charmIds));
-  return `https://${SHOPIFY_DOMAIN}/cart/add?id=${VARIANT_ID}&quantity=1&properties[Charms]=${note}`;
+  return getCheckoutUrl(charmIds);
 }
 
 export function goToBuyNow(charmIds: CharmId[]) {
   if (typeof window !== "undefined") {
-    window.location.href = getBuyNowUrl(charmIds);
+    window.location.href = getCheckoutUrl(charmIds);
   }
 }
 
 export function goToAddToCart(charmIds: CharmId[]) {
   if (typeof window !== "undefined") {
-    window.location.href = getAddToCartUrl(charmIds);
+    window.location.href = getCheckoutUrl(charmIds);
   }
 }

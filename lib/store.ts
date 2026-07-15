@@ -4,9 +4,6 @@ import { CharmId, MAX_CHARMS } from "./shopify";
 interface CharmoraState {
   charms: CharmId[];
   toggleCharm: (id: CharmId) => void;
-  isReserveOpen: boolean;
-  openReserve: () => void;
-  closeReserve: () => void;
 }
 
 export const useCharmoraStore = create<CharmoraState>((set, get) => ({
@@ -19,7 +16,4 @@ export const useCharmoraStore = create<CharmoraState>((set, get) => ({
       set({ charms: [...charms, id] });
     }
   },
-  isReserveOpen: false,
-  openReserve: () => set({ isReserveOpen: true }),
-  closeReserve: () => set({ isReserveOpen: false }),
 }));

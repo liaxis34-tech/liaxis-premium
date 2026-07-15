@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { useCharmoraStore } from "@/lib/store";
+import { goToBuyNow } from "@/lib/shopify";
 import { Logo, Monogram } from "./Logo";
 
 const LINKS = [
@@ -18,7 +19,7 @@ const LINKS = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const openReserve = useCharmoraStore((s) => s.openReserve);
+  const charms = useCharmoraStore((s) => s.charms);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -59,7 +60,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <button
-            onClick={openReserve}
+            onClick={() => goToBuyNow(charms)}
             className={clsx(
               "hidden items-center gap-2 border px-5 py-2.5 text-[11px] font-medium uppercase tracking-widest2 transition-colors md:inline-flex",
               scrolled
@@ -67,7 +68,7 @@ export default function Header() {
                 : "border-cream text-cream hover:bg-cream hover:text-ink"
             )}
           >
-            Reserve Yours
+            Buy Now
           </button>
 
           <button
@@ -107,11 +108,11 @@ export default function Header() {
               <button
                 onClick={() => {
                   setOpen(false);
-                  openReserve();
+                  goToBuyNow(charms);
                 }}
                 className="mt-4 bg-ink py-3 text-xs uppercase tracking-widest2 text-cream"
               >
-                Reserve Yours
+                Buy Now
               </button>
             </div>
           </motion.div>
