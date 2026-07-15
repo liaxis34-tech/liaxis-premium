@@ -82,7 +82,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "Choose up to three charms and make it yours.",
     description:
       "A single, sculpted hoop in 14k gold vermeil, designed to hold up to three charms at once.",
-    variantId: "45238204268679",
+    variantId: "8673156071559",
   },
   {
     id: "starfish-trail",
@@ -96,7 +96,21 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the ones who find magic in the small, scattered things.",
     description:
       "Five hand-finished starfish trail along a sterling silver climber, cast to catch the light from every angle.",
-    variantId: "8673156071559",
+    variantId: "8671008456839",
+  },
+  {
+    id: "leaf-vine",
+    name: "Leaf Vine Cuff",
+    metal: "gold",
+    price: 90,
+    currency: "USD",
+    images: ["/images/product-leaf-vine.webp"],
+    hasCharmBuilder: false,
+    meaningLabel: "Growth",
+    meaningText: "For every quiet season of growth that brought you here.",
+    description:
+      "A climbing vine of hand-finished leaves in 14k gold vermeil, set with cultured pearls along the way.",
+    variantId: "8673155186823",
   },
   {
     id: "butterfly",

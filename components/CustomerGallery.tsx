@@ -12,6 +12,7 @@ const TILES = [
   { type: "image" as const, src: "/images/lifestyle-mirror-kitchen.webp", position: "top", span: "" },
   { type: "image" as const, src: "/images/product-starfish-trail.webp", position: "center", span: "row-span-2" },
   { type: "image" as const, src: "/images/product-butterfly.webp", position: "center", span: "" },
+  { type: "image" as const, src: "/images/product-leaf-vine.webp", position: "center", span: "" },
   { type: "cta" as const, span: "" },
 ];
 
