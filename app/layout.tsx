@@ -18,9 +18,9 @@ const sansFont = Jost({
   display: "swap",
 });
 
-const SEO_TITLE = "Charmora — The Signature Ear Cuff | Wear Your Story";
+const SEO_TITLE = "Charmora — Gold & Silver Ear Cuffs | Wear Your Story";
 const SEO_DESCRIPTION =
-  "Charmora is a single, iconic gold ear cuff with interchangeable charms — Flower for love, Star for dreams, Blue Gem for memories, Moon for new beginnings. No piercing required. Wear your story.";
+  "Charmora is a collection of gold and silver ear cuffs worn without a piercing — including the Signature Ear Cuff, customizable with charms for love, dreams, memories, and new beginnings.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://charmora.com"),
@@ -33,9 +33,11 @@ export const metadata: Metadata = {
     "Charmora",
     "ear cuff",
     "gold ear cuff",
+    "silver ear cuff",
     "charm ear cuff",
     "interchangeable charms",
     "no piercing ear cuff",
+    "ear cuff collection",
   ],
   authors: [{ name: "Charmora" }],
   icons: {
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Charmora — The Signature Ear Cuff",
+        alt: "Charmora — Gold & Silver Ear Cuffs",
       },
     ],
   },
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#231C18",
+  themeColor: "#121110",
 };
 
 export default function RootLayout({

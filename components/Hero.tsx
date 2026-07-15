@@ -5,8 +5,6 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import GrainOverlay from "./GrainOverlay";
-import { useCharmoraStore } from "@/lib/store";
-import { goToBuyNow } from "@/lib/shopify";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
@@ -17,8 +15,6 @@ export default function Hero() {
   const copyRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollCueRef = useRef<HTMLDivElement>(null);
-
-  const charms = useCharmoraStore((s) => s.charms);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,6 +60,10 @@ export default function Hero() {
     document.querySelector("#reveal")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleShop = () => {
+    document.querySelector("#collection")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="top"
@@ -91,7 +91,7 @@ export default function Hero() {
           ref={eyebrowRef}
           className="mb-6 block text-[11px] uppercase tracking-widest2 text-champagne-light"
         >
-          The Signature Ear Cuff
+          The Ear Cuff Collection
         </span>
 
         <h1 className="font-display font-light text-cream">
@@ -117,16 +117,16 @@ export default function Hero() {
           ref={copyRef}
           className="mx-auto mt-8 max-w-md text-balance text-sm font-light leading-relaxed text-cream/80 md:text-base"
         >
-          One gold ear cuff. No piercing required. Charms you choose, swap, and
-          collect — each one a piece of what matters to you.
+          Gold and silver ear cuffs, each with its own story. No piercing
+          required — just one you get to wear.
         </p>
 
         <div ref={ctaRef} className="mt-11 flex flex-col items-center gap-4 sm:flex-row">
           <button
-            onClick={() => goToBuyNow(charms)}
+            onClick={handleShop}
             className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-300 hover:scale-[1.03] hover:bg-transparent hover:text-cream active:scale-[0.98]"
           >
-            Buy Now
+            Shop the Collection
           </button>
           <button
             onClick={handleExplore}

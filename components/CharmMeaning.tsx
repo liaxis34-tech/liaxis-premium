@@ -24,8 +24,9 @@ export default function CharmMeaning() {
             A story behind <span className="italic text-gold-dark">every charm</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-ink/60">
-            Each charm carries its own quiet symbolism — chosen by you, worn
-            close, and never quite the same combination twice.
+            On the Signature Ear Cuff, every charm carries its own quiet
+            symbolism — chosen by you, worn close, and never quite the same
+            combination twice.
           </p>
         </Reveal>
 

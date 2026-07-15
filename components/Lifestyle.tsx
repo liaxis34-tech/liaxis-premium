@@ -54,8 +54,9 @@ export default function Lifestyle() {
               your day exactly as you do.
             </p>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-ink/60">
-              Cast in 14k gold vermeil and finished by hand, the Signature Ear
-              Cuff is made to be lived in, not saved for special occasions.
+              Cast in 14k gold vermeil or sterling silver and finished by
+              hand, each cuff is made to be lived in, not saved for special
+              occasions.
             </p>
           </Reveal>
         </div>

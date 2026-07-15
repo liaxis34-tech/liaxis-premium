@@ -33,7 +33,7 @@ export default function Reviews() {
             </p>
             <p className="max-w-sm text-sm font-light leading-relaxed text-ink/55">
               Verified reviews will appear here automatically as customers
-              share their experience with the Signature Ear Cuff.
+              share their experience with the collection.
             </p>
           </div>
         </Reveal>

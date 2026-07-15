@@ -8,10 +8,10 @@ import SectionLabel from "./ui/SectionLabel";
 const TILES = [
   { type: "image" as const, src: "/images/product-petals.webp", position: "center", span: "row-span-2" },
   { type: "image" as const, src: "/images/ear-cuff-profile-clean.webp", position: "center", span: "" },
-  { type: "cta" as const, span: "" },
+  { type: "image" as const, src: "/images/product-pearl-blossom.webp", position: "center", span: "" },
   { type: "image" as const, src: "/images/lifestyle-mirror-kitchen.webp", position: "top", span: "" },
-  { type: "image" as const, src: "/images/product-studio.webp", position: "center", span: "row-span-2" },
-  { type: "image" as const, src: "/images/lifestyle-closeup.webp", position: "center", span: "" },
+  { type: "image" as const, src: "/images/product-starfish-trail.webp", position: "center", span: "row-span-2" },
+  { type: "image" as const, src: "/images/product-butterfly.webp", position: "center", span: "" },
   { type: "cta" as const, span: "" },
 ];
 
@@ -25,8 +25,8 @@ export default function CustomerGallery() {
             Follow the <span className="italic gold-text">story</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60">
-            A closer look at the Signature Ear Cuff, straight from our feed.
-            Tag @wearcharmora to be featured here.
+            A closer look at the collection, straight from our feed. Tag
+            @wearcharmora to be featured here.
           </p>
         </Reveal>
 
@@ -40,7 +40,7 @@ export default function CustomerGallery() {
               >
                 <Image
                   src={tile.src}
-                  alt="Charmora Signature Ear Cuff"
+                  alt="A Charmora ear cuff"
                   fill
                   sizes="(max-width: 640px) 50vw, 25vw"
                   style={{ objectPosition: tile.position }}

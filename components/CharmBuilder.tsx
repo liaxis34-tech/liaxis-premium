@@ -7,7 +7,7 @@ import { Check, Flower2, Star, Gem, Moon } from "lucide-react";
 import SectionLabel from "./ui/SectionLabel";
 import Reveal from "./ui/Reveal";
 import { useCharmoraStore } from "@/lib/store";
-import { CHARMS, CharmId, MAX_CHARMS, getCharm, goToAddToCart } from "@/lib/shopify";
+import { CHARMS, CharmId, MAX_CHARMS, getCharm, getProduct } from "@/lib/shopify";
 
 const ICONS: Record<CharmId, typeof Flower2> = {
   flower: Flower2,
@@ -17,8 +17,10 @@ const ICONS: Record<CharmId, typeof Flower2> = {
 };
 
 export default function CharmBuilder() {
-  const { charms, toggleCharm } = useCharmoraStore();
+  const { activeProductId, charms, toggleCharm, buyActiveProduct } = useCharmoraStore();
   const full = charms.length >= MAX_CHARMS;
+
+  if (!getProduct(activeProductId).hasCharmBuilder) return null;
 
   return (
     <section id="charms" className="relative bg-ink py-24 md:py-36">
@@ -133,7 +135,7 @@ export default function CharmBuilder() {
 
         <Reveal delay={0.2} className="mt-14 flex justify-center">
           <button
-            onClick={() => goToAddToCart(charms)}
+            onClick={buyActiveProduct}
             disabled={charms.length === 0}
             className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-300 hover:scale-[1.03] hover:bg-transparent hover:text-cream active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
           >

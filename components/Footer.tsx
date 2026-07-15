@@ -7,10 +7,10 @@ import { Logo, Monogram } from "./Logo";
 
 const LINK_COLUMNS = [
   {
-    title: "The Cuff",
+    title: "The Cuffs",
     links: [
+      { label: "Collection", href: "#collection" },
       { label: "Product Reveal", href: "#reveal" },
-      { label: "Choose Your Charms", href: "#charms" },
       { label: "Meaning", href: "#meaning" },
     ],
   },
@@ -74,8 +74,8 @@ export default function Footer() {
               <Logo tone="cream" className="text-3xl" />
             </div>
             <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-cream/55">
-              A single, signature gold ear cuff with charms you choose. No
-              piercing required — just a story you get to wear.
+              Gold and silver ear cuffs, worn without a piercing. Six designs,
+              each one a story you get to wear.
             </p>
             <div className="mt-6 flex items-center gap-4">
               <a

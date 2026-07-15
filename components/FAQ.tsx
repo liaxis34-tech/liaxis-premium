@@ -8,20 +8,24 @@ import Reveal from "./ui/Reveal";
 
 const FAQS = [
   {
+    q: "Which cuff should I choose?",
+    a: "Browse the collection above — each design ships exactly as shown. The Signature Ear Cuff is the only one built to be customized, with three charm slots you can swap any time. The other five are fixed designs, finished and ready to wear.",
+  },
+  {
     q: "Do I need a piercing to wear it?",
-    a: "No. The Signature Ear Cuff wraps gently around the outer ear and stays secure with no piercing required. It takes seconds to put on and just as long to remove.",
+    a: "No. Every Charmora ear cuff wraps gently around the outer ear and stays secure with no piercing required. It takes seconds to put on and just as long to remove.",
   },
   {
     q: "What is it made of?",
-    a: "14k gold vermeil — a thick layer of genuine gold bonded over solid sterling silver. It's tarnish-resistant, hypoallergenic, and made to be worn every day.",
+    a: "Each cuff is cast in either 14k gold vermeil or sterling silver, noted on its product card. Both are tarnish-resistant, hypoallergenic, and made to be worn every day.",
   },
   {
     q: "Will it fit my ear?",
-    a: "Yes. The cuff is designed as one adjustable size that gently molds to fit most ear shapes comfortably, from a snug helix fit to a looser lobe drape.",
+    a: "Yes. Every cuff is designed as one adjustable size that gently molds to fit most ear shapes comfortably, from a snug helix fit to a looser lobe drape.",
   },
   {
     q: "Can I change the charms myself?",
-    a: "Absolutely. Each charm attaches to its own small hoop along the cuff, so you can swap between Flower, Star, Blue Gem, and Moon whenever your story changes.",
+    a: "On the Signature Ear Cuff, yes — each charm attaches to its own small hoop, so you can swap between Flower, Star, Blue Gem, and Moon whenever your story changes. Our other cuffs are fixed designs, finished as shown.",
   },
   {
     q: "How do I care for my cuff?",

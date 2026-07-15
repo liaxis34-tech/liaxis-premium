@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { ChevronUp, Flower2, Star, Gem, Moon } from "lucide-react";
 import { useCharmoraStore } from "@/lib/store";
-import { CHARMS, CharmId, MAX_CHARMS, formatPrice, goToBuyNow } from "@/lib/shopify";
+import { CHARMS, CharmId, MAX_CHARMS, formatPrice, getProduct } from "@/lib/shopify";
 
 const ICONS: Record<CharmId, typeof Flower2> = {
   flower: Flower2,
@@ -17,7 +17,8 @@ const ICONS: Record<CharmId, typeof Flower2> = {
 export default function StickyBuyBar() {
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const { charms, toggleCharm } = useCharmoraStore();
+  const { activeProductId, charms, toggleCharm, buyActiveProduct } = useCharmoraStore();
+  const product = getProduct(activeProductId);
 
   useEffect(() => {
     const onScroll = () => {
@@ -41,7 +42,7 @@ export default function StickyBuyBar() {
           className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-cream/95 shadow-[0_-10px_40px_-20px_rgba(35,28,24,0.35)] backdrop-blur-md md:hidden"
         >
           <AnimatePresence>
-            {expanded && (
+            {expanded && product.hasCharmBuilder && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
@@ -76,21 +77,32 @@ export default function StickyBuyBar() {
           </AnimatePresence>
 
           <div className="flex items-center gap-3 px-4 py-3">
-            <button onClick={() => setExpanded((v) => !v)} className="flex flex-col items-start">
-              <span className="font-display text-base text-ink">{formatPrice()}</span>
+            <button
+              onClick={() => product.hasCharmBuilder && setExpanded((v) => !v)}
+              className="flex min-w-0 flex-col items-start"
+            >
+              <span className="truncate font-display text-base text-ink">
+                {formatPrice(product.price, product.currency)}
+              </span>
               <span className="flex items-center gap-1 text-[10px] uppercase tracking-widest2 text-ink/50">
-                {charms.length} charm{charms.length === 1 ? "" : "s"}
-                <ChevronUp
-                  size={11}
-                  strokeWidth={2}
-                  className={clsx("transition-transform duration-300", expanded && "rotate-180")}
-                />
+                {product.hasCharmBuilder ? (
+                  <>
+                    {charms.length} charm{charms.length === 1 ? "" : "s"}
+                    <ChevronUp
+                      size={11}
+                      strokeWidth={2}
+                      className={clsx("transition-transform duration-300", expanded && "rotate-180")}
+                    />
+                  </>
+                ) : (
+                  <span className="max-w-[9rem] truncate">{product.name}</span>
+                )}
               </span>
             </button>
 
             <div className="ml-auto flex flex-1 gap-2">
               <button
-                onClick={() => goToBuyNow(charms)}
+                onClick={buyActiveProduct}
                 className="flex-1 bg-ink px-4 py-3.5 text-[11px] uppercase tracking-widest2 text-cream transition-transform duration-200 active:scale-[0.97]"
               >
                 Buy Now
