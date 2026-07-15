@@ -76,7 +76,7 @@ export const PRODUCTS: Product[] = [
     metal: "gold",
     price: 148,
     currency: "USD",
-    images: ["/images/product-studio.webp", "/images/product-petals.webp"],
+    images: ["/images/product-studio.webp"],
     hasCharmBuilder: true,
     meaningLabel: "Your Story",
     meaningText: "Choose up to three charms and make it yours.",

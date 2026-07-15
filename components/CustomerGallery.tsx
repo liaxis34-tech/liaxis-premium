@@ -6,7 +6,7 @@ import Reveal from "./ui/Reveal";
 import SectionLabel from "./ui/SectionLabel";
 
 const TILES = [
-  { type: "image" as const, src: "/images/product-petals.webp", position: "center", span: "row-span-2" },
+  { type: "image" as const, src: "/images/product-gem-fringe-gold.webp", position: "center", span: "row-span-2" },
   { type: "image" as const, src: "/images/ear-cuff-profile-clean.webp", position: "center", span: "" },
   { type: "image" as const, src: "/images/product-pearl-blossom.webp", position: "center", span: "" },
   { type: "image" as const, src: "/images/lifestyle-mirror-kitchen.webp", position: "top", span: "" },
