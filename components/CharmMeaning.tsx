@@ -16,7 +16,7 @@ const NUMERALS = ["I", "II", "III", "IV"];
 
 export default function CharmMeaning() {
   return (
-    <section id="meaning" className="relative bg-blush-50 py-24 md:py-36">
+    <section id="meaning" className="relative bg-cream-soft py-24 md:py-36">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <Reveal className="mx-auto max-w-xl text-center">
           <SectionLabel>The Meaning</SectionLabel>

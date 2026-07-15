@@ -10,18 +10,9 @@ const config: Config = {
     extend: {
       colors: {
         cream: {
-          DEFAULT: "#FBF6ED",
-          soft: "#F5ECDC",
-          deep: "#EBDCC0",
-        },
-        blush: {
-          50: "#FCF0EC",
-          100: "#F6DCD3",
-          200: "#EFC4B6",
-          300: "#E4A897",
-          400: "#D68E7B",
-          500: "#C17862",
-          600: "#9E5E4C",
+          DEFAULT: "#FFFFFF",
+          soft: "#F7F6F3",
+          deep: "#EEECE6",
         },
         champagne: {
           DEFAULT: "#D9BE8F",
@@ -34,9 +25,9 @@ const config: Config = {
           dark: "#8A6A3E",
         },
         ink: {
-          DEFAULT: "#231C18",
-          soft: "#332922",
-          faint: "#5C4F45",
+          DEFAULT: "#121110",
+          soft: "#1F1E1B",
+          faint: "#54514A",
         },
       },
       fontFamily: {
@@ -49,8 +40,6 @@ const config: Config = {
       backgroundImage: {
         "gold-sheen":
           "linear-gradient(120deg, #B99966 0%, #E7D4AC 35%, #F4EFE6 50%, #E7D4AC 65%, #B99966 100%)",
-        "blush-sheen":
-          "linear-gradient(120deg, #C17862 0%, #EFC4B6 35%, #FBF6ED 50%, #EFC4B6 65%, #C17862 100%)",
       },
       keyframes: {
         float: {

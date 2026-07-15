@@ -25,9 +25,9 @@ interface MonogramProps {
 }
 
 export function Monogram({ className, tone = "dark" }: MonogramProps) {
-  const bg = tone === "dark" ? "#231C18" : "#FBF6ED";
+  const bg = tone === "dark" ? "#121110" : "#FFFFFF";
   const ring = tone === "dark" ? "#D9BE8F" : "#B08D57";
-  const charm = tone === "dark" ? "#C17862" : "#9E5E4C";
+  const charm = tone === "dark" ? "#CBA872" : "#8A6A3E";
 
   return (
     <svg viewBox="0 0 64 64" className={className} role="img" aria-label="Charmora">

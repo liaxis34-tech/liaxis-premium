@@ -89,7 +89,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <span
           ref={eyebrowRef}
-          className="mb-6 block text-[11px] uppercase tracking-widest2 text-blush-200"
+          className="mb-6 block text-[11px] uppercase tracking-widest2 text-champagne-light"
         >
           The Signature Ear Cuff
         </span>
@@ -124,13 +124,13 @@ export default function Hero() {
         <div ref={ctaRef} className="mt-11 flex flex-col items-center gap-4 sm:flex-row">
           <button
             onClick={() => goToBuyNow(charms)}
-            className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-500 hover:bg-transparent hover:text-cream"
+            className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-300 hover:scale-[1.03] hover:bg-transparent hover:text-cream active:scale-[0.98]"
           >
             Buy Now
           </button>
           <button
             onClick={handleExplore}
-            className="border border-cream/50 px-10 py-4 text-[11px] uppercase tracking-widest2 text-cream transition-all duration-500 hover:border-cream hover:bg-cream/10"
+            className="border border-cream/50 px-10 py-4 text-[11px] uppercase tracking-widest2 text-cream transition-all duration-300 hover:scale-[1.03] hover:border-cream hover:bg-cream/10 active:scale-[0.98]"
           >
             Discover
           </button>

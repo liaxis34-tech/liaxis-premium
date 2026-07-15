@@ -91,7 +91,7 @@ export default function StickyBuyBar() {
             <div className="ml-auto flex flex-1 gap-2">
               <button
                 onClick={() => goToBuyNow(charms)}
-                className="flex-1 bg-ink px-4 py-3.5 text-[11px] uppercase tracking-widest2 text-cream"
+                className="flex-1 bg-ink px-4 py-3.5 text-[11px] uppercase tracking-widest2 text-cream transition-transform duration-200 active:scale-[0.97]"
               >
                 Buy Now
               </button>

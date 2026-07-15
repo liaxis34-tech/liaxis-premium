@@ -22,7 +22,7 @@ export default function CustomerGallery() {
         <Reveal className="mx-auto max-w-xl text-center">
           <SectionLabel>@charmora</SectionLabel>
           <h2 className="mt-6 font-display text-4xl font-light text-cream md:text-5xl">
-            Follow the <span className="italic blush-text">story</span>
+            Follow the <span className="italic gold-text">story</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60">
             A closer look at the Signature Ear Cuff, straight from our feed.
@@ -54,9 +54,13 @@ export default function CustomerGallery() {
               <Reveal
                 key={i}
                 delay={(i % 4) * 0.06}
-                className={`flex aspect-square flex-col items-center justify-center gap-3 border border-cream/15 bg-blush-sheen bg-[length:200%_auto] px-4 text-center ${tile.span}`}
+                className={`group flex aspect-square flex-col items-center justify-center gap-3 border border-gold/25 bg-cream px-4 text-center transition-colors duration-300 hover:border-gold ${tile.span}`}
               >
-                <Sparkles size={20} strokeWidth={1.25} className="text-ink/70" />
+                <Sparkles
+                  size={20}
+                  strokeWidth={1.25}
+                  className="text-gold-dark transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
+                />
                 <span className="text-xs uppercase tracking-widest2 text-ink/70">
                   Tag @wearcharmora
                 </span>

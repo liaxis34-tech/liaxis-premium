@@ -9,7 +9,7 @@ import Reveal from "./ui/Reveal";
 // snippet). Until the first reviews come in, this renders the empty state.
 export default function Reviews() {
   return (
-    <section id="reviews" className="relative bg-blush-50 py-24 md:py-36">
+    <section id="reviews" className="relative bg-cream-soft py-24 md:py-36">
       <div className="mx-auto max-w-4xl px-6 md:px-10">
         <Reveal className="text-center">
           <SectionLabel>Reviews</SectionLabel>

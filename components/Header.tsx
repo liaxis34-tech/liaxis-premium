@@ -49,7 +49,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className={clsx(
-                "text-[11px] font-medium uppercase tracking-widest2 transition-colors hover:text-gold",
+                "relative py-1 text-[11px] font-medium uppercase tracking-widest2 transition-colors hover:text-gold after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full",
                 scrolled ? "text-ink/80" : "text-cream/90"
               )}
             >
@@ -62,7 +62,7 @@ export default function Header() {
           <button
             onClick={() => goToBuyNow(charms)}
             className={clsx(
-              "hidden items-center gap-2 border px-5 py-2.5 text-[11px] font-medium uppercase tracking-widest2 transition-colors md:inline-flex",
+              "hidden items-center gap-2 border px-5 py-2.5 text-[11px] font-medium uppercase tracking-widest2 transition-all duration-300 hover:scale-[1.04] active:scale-[0.97] md:inline-flex",
               scrolled
                 ? "border-ink text-ink hover:bg-ink hover:text-cream"
                 : "border-cream text-cream hover:bg-cream hover:text-ink"

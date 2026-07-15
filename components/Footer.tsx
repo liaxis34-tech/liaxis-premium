@@ -40,7 +40,7 @@ export default function Footer() {
         <Reveal className="flex flex-col items-start justify-between gap-10 border-b border-cream/10 pb-16 md:flex-row md:items-center">
           <div>
             <h3 className="font-display text-3xl font-light md:text-4xl">
-              Stay <span className="italic blush-text">close</span>
+              Stay <span className="italic gold-text">close</span>
             </h3>
             <p className="mt-3 max-w-sm text-sm font-light text-cream/60">
               New charms and stories, delivered occasionally.
@@ -60,7 +60,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="flex-shrink-0 text-[11px] uppercase tracking-widest2 text-blush-200 hover:text-cream"
+              className="flex-shrink-0 text-[11px] uppercase tracking-widest2 text-gold-light transition-colors hover:text-cream"
             >
               {submitted ? "Thank you" : "Notify Me"}
             </button>
@@ -81,7 +81,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-colors hover:border-blush-200 hover:text-blush-200"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:scale-110 hover:border-gold-light hover:text-gold-light"
               >
                 <Instagram size={15} strokeWidth={1.5} />
               </a>
@@ -90,7 +90,7 @@ export default function Footer() {
 
           {LINK_COLUMNS.map((col) => (
             <div key={col.title}>
-              <h4 className="text-[11px] uppercase tracking-widest2 text-blush-200">
+              <h4 className="text-[11px] uppercase tracking-widest2 text-gold-light">
                 {col.title}
               </h4>
               <ul className="mt-5 flex flex-col gap-3">

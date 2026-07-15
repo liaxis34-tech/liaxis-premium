@@ -26,7 +26,7 @@ export default function CharmBuilder() {
         <Reveal className="mx-auto max-w-xl text-center">
           <SectionLabel>Choose Your Charms</SectionLabel>
           <h2 className="mt-6 font-display text-4xl font-light text-cream md:text-5xl">
-            Build <span className="italic blush-text">your combination</span>
+            Build <span className="italic gold-text">your combination</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-sm font-light leading-relaxed text-cream/60">
             Your cuff holds up to {MAX_CHARMS} charms at once. Choose the ones
@@ -90,6 +90,7 @@ export default function CharmBuilder() {
                     disabled={disabled}
                     className={clsx(
                       "group flex w-full items-start gap-4 border p-5 text-left transition-all duration-300",
+                      !disabled && "hover:-translate-y-0.5",
                       active
                         ? "border-gold bg-cream/[0.06]"
                         : "border-cream/15 hover:border-cream/35",
@@ -134,7 +135,7 @@ export default function CharmBuilder() {
           <button
             onClick={() => goToAddToCart(charms)}
             disabled={charms.length === 0}
-            className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-500 hover:bg-transparent hover:text-cream disabled:cursor-not-allowed disabled:opacity-40"
+            className="border border-cream bg-cream px-10 py-4 text-[11px] uppercase tracking-widest2 text-ink transition-all duration-300 hover:scale-[1.03] hover:bg-transparent hover:text-cream active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
           >
             Add to Bag
           </button>

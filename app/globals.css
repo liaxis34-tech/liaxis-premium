@@ -32,16 +32,16 @@ html.lenis {
 }
 
 body {
-  background-color: #fbf6ed;
-  color: #231c18;
+  background-color: #ffffff;
+  color: #121110;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #efc4b6;
-  color: #231c18;
+  background: #cba872;
+  color: #121110;
 }
 
 ::-webkit-scrollbar {
@@ -49,13 +49,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5ecdc;
+  background: #f7f6f3;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #d9be8f;
   border-radius: 999px;
-  border: 2px solid #f5ecdc;
+  border: 2px solid #f7f6f3;
 }
 
 .text-balance {
@@ -72,14 +72,6 @@ body {
 
 .gold-text {
   background: linear-gradient(120deg, #9e7f51, #e7d4ac, #9e7f51);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.blush-text {
-  background: linear-gradient(120deg, #9e5e4c, #efc4b6, #9e5e4c);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
