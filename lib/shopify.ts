@@ -96,7 +96,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the ones who find magic in the small, scattered things.",
     description:
       "Five hand-finished starfish trail along a sterling silver climber, cast to catch the light from every angle.",
-    variantId: "",
+    variantId: "8673156071559",
   },
   {
     id: "butterfly",
@@ -124,7 +124,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the light you bring into a room without trying.",
     description:
       "A fringe of textured studs and a cluster of mixed gemstones, cast in 14k gold vermeil.",
-    variantId: "",
+    variantId: "8673153843335",
   },
   {
     id: "gem-fringe-silver",
@@ -138,7 +138,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the light you bring into a room without trying.",
     description:
       "A fringe of textured studs and a cluster of mixed gemstones, cast in sterling silver.",
-    variantId: "",
+    variantId: "8673151615111",
   },
   {
     id: "pearl-blossom",
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the quiet confidence that never needs to raise its voice.",
     description:
       "A hand-finished gold vermeil blossom set with cultured pearls, with two pearl studs climbing the lobe.",
-    variantId: "",
+    variantId: "8673154171015",
   },
 ];
 
