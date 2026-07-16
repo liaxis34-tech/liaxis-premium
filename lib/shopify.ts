@@ -82,7 +82,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "Choose up to three charms and make it yours.",
     description:
       "A single, sculpted hoop in 14k gold vermeil, designed to hold up to three charms at once.",
-    variantId: "8673156071559",
+    variantId: "45252217372807",
   },
   {
     id: "starfish-trail",
@@ -96,7 +96,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the ones who find magic in the small, scattered things.",
     description:
       "Five hand-finished starfish trail along a sterling silver climber, cast to catch the light from every angle.",
-    variantId: "8671008456839",
+    variantId: "45252207804551",
   },
   {
     id: "leaf-vine",
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For every quiet season of growth that brought you here.",
     description:
       "A climbing vine of hand-finished leaves in 14k gold vermeil, set with cultured pearls along the way.",
-    variantId: "8673155186823",
+    variantId: "45252214030471",
   },
   {
     id: "butterfly",
@@ -124,7 +124,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For every version of you it took to become who you are.",
     description:
       "Three sterling silver butterflies in flight, finished with a pavé-set crystal trail at the lobe.",
-    variantId: "8673151516807",
+    variantId: "45252207902855",
   },
   {
     id: "gem-fringe-gold",
@@ -138,7 +138,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the light you bring into a room without trying.",
     description:
       "A fringe of textured studs and a cluster of mixed gemstones, cast in 14k gold vermeil.",
-    variantId: "8673153843335",
+    variantId: "45252211671175",
   },
   {
     id: "gem-fringe-silver",
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the light you bring into a room without trying.",
     description:
       "A fringe of textured studs and a cluster of mixed gemstones, cast in sterling silver.",
-    variantId: "8673151615111",
+    variantId: "45252208459911",
   },
   {
     id: "pearl-blossom",
@@ -166,7 +166,7 @@ export const PRODUCTS: Product[] = [
     meaningText: "For the quiet confidence that never needs to raise its voice.",
     description:
       "A hand-finished gold vermeil blossom set with cultured pearls, with two pearl studs climbing the lobe.",
-    variantId: "8673154171015",
+    variantId: "45252212162695",
   },
 ];
 
