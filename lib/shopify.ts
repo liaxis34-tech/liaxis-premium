@@ -193,8 +193,11 @@ function buildCharmNote(charmIds: CharmId[]): string {
 export function getCheckoutUrl(product: Product, charmIds: CharmId[] = []): string | null {
   if (!product.variantId) return null;
   let url = `https://${SHOPIFY_DOMAIN}/cart/${product.variantId}:1?return_to=/checkout`;
+  // Shopify's cart permalink shorthand only recognizes cart-level
+  // "attributes[...]" in the query string — "properties[...]" is a
+  // /cart/add form field, not a permalink param, and gets rejected here.
   if (product.hasCharmBuilder) {
-    url += `&properties[Charms]=${encodeURIComponent(buildCharmNote(charmIds))}`;
+    url += `&attributes[Charms]=${encodeURIComponent(buildCharmNote(charmIds))}`;
   }
   return url;
 }
