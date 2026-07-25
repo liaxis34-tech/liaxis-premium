@@ -148,7 +148,7 @@ export default function ProductExperience() {
             </p>
 
             <div className="mt-6 flex items-baseline gap-3">
-              <span className="font-display text-3xl text-ink">₺1.890</span>
+              <span className="font-display text-3xl text-ink">₺1.899</span>
               <span className="text-sm text-ink/40 line-through">₺2.590</span>
               <span className="text-[11px] uppercase tracking-widest2 text-gold-dark">
                 %27 İndirim
