@@ -52,7 +52,7 @@ export default function StickyBuyBar() {
               onClick={() => setExpanded((v) => !v)}
               className="flex flex-col items-start"
             >
-              <span className="font-display text-base text-ink">₺1.890</span>
+              <span className="font-display text-base text-ink">₺1.899</span>
               <span className="flex items-center gap-1 text-[10px] uppercase tracking-widest2 text-ink/50">
                 {color} / {size}
                 <ChevronUp
